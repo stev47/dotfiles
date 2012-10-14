@@ -1,0 +1,2 @@
+" Colorsheme
+colorscheme oceanblack
