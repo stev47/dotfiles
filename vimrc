@@ -29,9 +29,9 @@ set tabstop=4		"numbers of spaces of tab char
 set shiftwidth=4
 "set hlsearch
 set number
-"syntax on
-"set autoindent
-"set smartindent
+syntax on
+set autoindent
+set smartindent
 
 
 
