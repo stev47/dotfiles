@@ -60,13 +60,17 @@ augroup ProjectSetup
     " Do not highlight spaces at the end of line while typing on that line.
     au BufRead,BufEnter /home/stev47/test/ffmpeg/* autocmd InsertEnter * match ForbiddenWhitespace /\t\|\s\+\%#\@<!$/
 
-    au BufRead,BufEnter /home/stev47/uni/ana3/hmenke/* set expandtab shiftwidth=2 softtabstop=2 cindent
+    au BufRead,BufEnter /home/stev47/uni/ana3/* set expandtab shiftwidth=2 softtabstop=2 cindent
 augroup END
 
 
 "=============
 " My stuff
 "==============
+
+" trailing whitespace
+highlight TrailingWhitespace ctermbg=red guibg=red
+match TrailingWhitespace /\(\s\|\t\)\+$/
 
 " typo correction mappings
 "--------------------------
@@ -96,11 +100,11 @@ nmap q: :
 " Movements with Neo2 keyboard layout
 nmap <Home> ^
 nmap <End> $
-nmap <PageUp> <C-U>
-nmap <PageDown> <C-D>
+nmap <PageUp> 10<C-Y>
+nmap <PageDown> 10<C-E>
 " lookahead/lookbefore when in insert mode
-imap <PageUp> <Esc>m"<C-U>`"a
-imap <PageDown> <Esc>m"<C-D>`"a
+imap <PageUp> <Esc>m"<PageUp>`"a
+imap <PageDown> <Esc>m"<PageDown>`"a
 
 
 " Latex \[ \] --> \begin{align*} \end{align*}
