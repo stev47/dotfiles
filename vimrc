@@ -34,7 +34,7 @@ Bundle "honza/vim-snippets"
 Bundle "mutewinter/vim-css3-syntax"
 Bundle "pangloss/vim-javascript"
 
-" git plugin
+" fugitive - git plugin
 Bundle "tpope/vim-fugitive"
 
 
@@ -45,9 +45,6 @@ filetype plugin indent on
 autocmd BufRead *.vala,*.vapi set efm=%f:%l.%c-%[%^:]%#:\ %t%[%^:]%#:\ %m
 au BufRead,BufNewFile *.vala,*.vapi setfiletype vala
 
-
-set lines=35 columns=110
-"winpos 550 150
 
 
 set fileformat=unix
