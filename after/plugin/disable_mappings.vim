@@ -1,1 +1,1 @@
-nunmap gx
+silent! nunmap gx
