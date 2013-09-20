@@ -1,38 +1,56 @@
 set nocompatible               " be iMproved
 filetype off                   " required!
 
-set rtp+=~/.vim/bundle/vundle/
+set rtp+=~/.vim/bundle/vundle
 call vundle#rc()
 
 Bundle 'gmarik/vundle'
 
+
+source ~/.vim/keymaps.vim
+
+
 " My Bundles
 Bundle 'LaTeX-Box-Team/LaTeX-Box'
-let g:LatexBox_quickfix = 0
-Bundle 'flazz/vim-colorschemes'
-Bundle "Lokaltog/vim-easymotion"
+let g:LatexBox_latexmk_async = 1
+let g:LatexBox_quickfix = 1
+"let g:LatexBox_latexmk_options = '-pdflatex="TEXINPUTS=../common: pdflatex -synctex=1 %O %S"'
+let g:LatexBox_latexmk_options = '-synctex=1'
+let g:LatexBox_latexmk_env = 'TEXINPUTS=~/uni/common:'
+let g:LatexBox_show_warnings = 0
+
+
+"Bundle 'flazz/vim-colorschemes'
+"Bundle "Lokaltog/vim-easymotion"
+
+" Highlight CSS Colors, like #FF00000
+"Bundle "stev47/vim-css-color"
+"let g:cssColorVimDoNotMessMyUpdatetime = 1
 
 " Snipmate
-Bundle "MarcWeber/vim-addon-mw-utils"
+"Bundle "MarcWeber/vim-addon-mw-utils"
 Bundle "tomtom/tlib_vim"
-"Bundle "MarcWeber/ultisnips"
-Bundle "garbas/vim-snipmate"
-Bundle "honza/vim-snippets"
 
-"let g:UltiSnips = {}
-"let g:UltiSnips.snipmate_ft_filter = {
-			\ 'default' : {'filetypes': ["FILETYPE", "_"] },
-			\ 'html'    : {'filetypes': ["html", "javascript", "_"] },
-			\ 'xhtml'    : {'filetypes': ["xhtml", "html", "javascript", "_"] },
-			\ 'cpp'    : {'filetypes': [] },
-			\ }
-"let g:UltiSnips.ExpandTrigger = "<tab>"
-"let g:UltiSnips.JumpForwardTrigger = "<tab>"
-"let g:UltiSnips.always_use_first_snippet = 1
+
+let g:UltiSnips = {}
+let g:UltiSnips.ExpandTrigger = "<Tab>"
+let g:UltiSnips.ListSnippets = "<C-Tab>"
+let g:UltiSnips.JumpForwardTrigger = "¿"
+let g:UltiSnips.JumpBackwardTrigger = "¡"
+
+Bundle "MarcWeber/ultisnips"
+set rtp+=~/.vim/snippets
+
+" TODO: Doesn't work??
+let g:UltiSnipsEditSplit = 'vertical'
+
+
+"Bundle "Lokaltog/powerline"
+"set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
 
 " web
-Bundle "mutewinter/vim-css3-syntax"
-Bundle "pangloss/vim-javascript"
+"Bundle "mutewinter/vim-css3-syntax"
+"Bundle "pangloss/vim-javascript"
 
 " fugitive - git plugin
 Bundle "tpope/vim-fugitive"
@@ -47,7 +65,7 @@ au BufRead,BufNewFile *.vala,*.vapi setfiletype vala
 
 
 
-set fileformat=unix
+"set fileformat=unix
 
 set tabstop=4		"numbers of spaces of tab char
 set shiftwidth=4
@@ -56,90 +74,81 @@ set number
 syntax on
 set autoindent
 set smartindent
-
+set formatoptions="cq"
 
 "==========
-" FFmpeg
+" Project Setup
 "==========
 
-augroup ProjectSetup
-	" allow tabs in Makefiles
-	autocmd FileType make set noexpandtab shiftwidth=8 softtabstop=8
-	" Trailing whitespace and tabs are forbidden, so highlight them.
-	highlight ForbiddenWhitespace ctermbg=red guibg=red
-    " indentation rules for FFmpeg: 4 spaces, no tabs
-    au BufRead,BufEnter /home/stev47/test/ffmpeg/* set expandtab shiftwidth=4 softtabstop=4 cindent
-    au BufRead,BufEnter /home/stev47/test/ffmpeg/* match ForbiddenWhitespace /\s\+$\|\t/
-    " Do not highlight spaces at the end of line while typing on that line.
-    au BufRead,BufEnter /home/stev47/test/ffmpeg/* autocmd InsertEnter * match ForbiddenWhitespace /\t\|\s\+\%#\@<!$/
-
-    au BufRead,BufEnter /home/stev47/uni/ana3/* set expandtab shiftwidth=2 softtabstop=2 cindent
-augroup END
+"augroup ProjectSetup
+"	" force tabs in Makefiles
+"	autocmd FileType make set noexpandtab shiftwidth=4 softtabstop=4
+"	" Trailing whitespace and tabs are forbidden, so highlight them.
+"	highlight ForbiddenWhitespace ctermbg=red guibg=red
+"    " indentation rules for FFmpeg: 4 spaces, no tabs
+"    au BufRead,BufEnter /home/stev47/test/ffmpeg/* set expandtab shiftwidth=4 softtabstop=4 cindent
+"    au BufRead,BufEnter /home/stev47/test/ffmpeg/* match ForbiddenWhitespace /\s\+$\|\t/
+"    " Do not highlight spaces at the end of line while typing on that line.
+"    au BufRead,BufEnter /home/stev47/test/ffmpeg/* autocmd InsertEnter * match ForbiddenWhitespace /\t\|\s\+\%#\@<!$/
+"
+"    au BufRead,BufEnter /home/stev47/uni/ana3/* set expandtab shiftwidth=2 softtabstop=2 cindent
+"augroup END
 
 
 "=============
 " My stuff
 "==============
-"
+
+
+
+
+
+colorscheme mustang
 
 function! LatexSetViewer()
 	let g:LatexBox_viewer = "evince_vim_synctex " . v:servername
 endfun
-au VimEnter *.tex call LatexSetViewer()
+au BufEnter *.tex call LatexSetViewer()
 
 function! LatexEvinceSearch()
-	let cmd = 'evince_forward_search "'. LatexBox_GetOutputFile(). '" ' . line('.') . ' ' . expand("%:p")
-	let output = system(cmd)
+	silent! call system('evince_forward_search "'. LatexBox_GetOutputFile(). '" ' . line('.') . ' ' . expand("%:p"))
 endfun
-nmap ls :silent call LatexEvinceSearch()<Return>
-"function! LatexEvinceSearch()
-"	execute "!cd " . LatexBox_GetTexRoot() . '; evince_vim_dbus.py EVINCE "`basename ' . LatexBox_GetOutputFile(). '`" ' . line('.') . ' "%:p"'
-"endfun
-"command! LatexEvinceSearch call LatexEvinceSearch()
-"au FileType tex map ls :silent LatexEvinceSearch
+"nmap ls :silent call LatexEvinceSearch()<Return>
+nmap <Leader>ls :call LatexEvinceSearch()<Return>
+"nmap <Leader>lv :LatexView<Return>
 
 
-" Trailing whitespace and tabs are forbidden, so highlight them.
-highlight ForbiddenWhitespace ctermbg=red guibg=red
+" Highlight trailing whitespace
+" =============================
+highlight TrailingWhitespace guibg=red ctermbg=red
+match TrailingWhitespace /\s\+$/
+" in insert mode, do not highlight whitespace preceding the cursor
+autocmd InsertEnter * match TrailingWhitespace /\(\s\%#\@!\)\+$/
+autocmd InsertLeave * match TrailingWhitespace /\s\+$/
 
-" trailing whitespace
-highlight TrailingWhitespace ctermbg=red guibg=red
-match TrailingWhitespace /\(\s\|\t\)\+$/
 
 " typo correction mappings
 "--------------------------
 
-" Some remappings for mistyped ':w'
-cmap ^ <C-R>=Circumflex()<CR>
-function! Circumflex()
-	if getcmdtype() == ':' && getcmdpos() == 1
-		return 'w'
-	else
-		return '^'
-	endif
-endfunction
-cmap <PageDown> w
-
 " When I want to go left and Mod3 is still active.
-imap ∫ <Left>
+"imap ∫ <Left>
 
 " Save with Control s (I can't get myself used to this, not sure if it is
 " needed)
 nmap <C-s> :w<Return>
 imap <C-s> <Esc>:w<Return>
 
-" Prevent some strange command line from occasionally popping up
-nmap q: :
-
 " Movements with Neo2 keyboard layout
-nmap <Home> ^
-nmap <End> $
+map <Home> ^
+map <End> $
 nmap <PageUp> 10<C-Y>
 nmap <PageDown> 10<C-E>
 " lookahead/lookbefore when in insert mode
-imap <PageUp> <Esc>m"<PageUp>`"a
-imap <PageDown> <Esc>m"<PageDown>`"a
+inoremap <PageUp> <Esc>m"10<C-Y>`"a
+inoremap <PageDown> <Esc>m"10<C-E>`"a
 
+noremap <BS> X
+noremap <Del> x
 
 " Latex \[ \] --> \begin{align*} \end{align*}
 nmap <Leader>la		<Plug>LatexChangeEnvalign*<Return>
@@ -151,4 +160,12 @@ map <S-ScrollWheelUp> 10zh
 map <S-ScrollWheelDown> 10zl
 
 " Make shortcut
-nmap <C-m> :make<Return>
+"noremap <C-m> :make<Return>
+
+" Habit-breaking
+map pt <Nop>
+map <C-w> <Nop>
+map d <Nop>
+" <C-m> is equivalent to <CR>, so this is no good idea
+"map <C-m> <Nop>
+

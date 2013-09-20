@@ -1,0 +1,48 @@
+snippet amt "Aligned math" b
+\begin{align*}
+	${1}
+\end{align*}
+endsnippet
+
+snippet mt "Math environment" b
+\[
+	${1}
+\]
+endsnippet
+
+snippet ol "Ordered List" b
+\\begin\{enumerate\}[${1:1.}]
+	\\item
+		${2}
+\\end\{enumerate\}
+endsnippet
+
+snippet ul "Unordered List" b
+\\begin\{itemize\}
+	\\item
+		${2}
+\\end\{itemize\}
+endsnippet
+
+snippet li "List item" b
+\\item
+	${1}
+endsnippet
+
+snippet "be(gin)?" "\begin{} / \end{}" br
+\\begin\{${1:env}\}
+	${2:${VISUAL:content}}
+\\end\{$1\}
+endsnippet
+
+snippet ob "Overbrace"
+\\overbrace\{${1:${VISUAL:text}}\}^\{${2}\}
+endsnippet
+
+snippet ub "Underbrace"
+\\underbrace\{${1:${VISUAL:text}}\}_\{${2}\}
+endsnippet
+
+snippet "(tx|te(xt)?)" "\text{}" wr
+\\text\{${1:${VISUAL:text}}\}
+endsnippet
