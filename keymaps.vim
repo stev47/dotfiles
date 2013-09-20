@@ -105,9 +105,9 @@ silent! sunmap j
 noremap <C-q> <C-v>
 
 
-nnoremap pp gg
-nnoremap pr gt
-nnoremap pn gT
+noremap pp gg
+noremap pr gt
+noremap pn gT
 
 onoremap h i
 onoremap g a
