@@ -119,6 +119,13 @@ vnoremap g a
 vnoremap he iw
 vnoremap ge aw
 
+" Diff commands
+noremap da do
+noremap de dp
+noremap d<Up> [c
+noremap d<Down> ]c
+
+
 smapclear
 
 " Window key
