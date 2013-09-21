@@ -166,6 +166,7 @@ map <S-ScrollWheelDown> 10zl
 map pt <Nop>
 map <C-w> <Nop>
 map d <Nop>
+noremap <C-q> <Nop>
 " <C-m> is equivalent to <CR>, so this is no good idea
 "map <C-m> <Nop>
 

@@ -102,7 +102,7 @@ silent! sunmap j
 
 
 " Visual block-mode map
-noremap <C-q> <C-v>
+noremap & <C-v>
 
 
 noremap pp gg
