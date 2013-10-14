@@ -2,7 +2,7 @@
 let mapleader="k"
 let maplocalleader="k"
 
-silent! unmap gx
+"silent! unmap gx
 
 " quit mappings
 noremap 7 :q<CR>
@@ -43,8 +43,8 @@ noremap n p
 noremap N P
 noremap r d
 noremap R D
-noremap t y
-noremap T Y
+noremap t v
+noremap T V
 "noremap d x
 "noremap D X
 "norema  ü v
@@ -53,6 +53,10 @@ noremap ö '
 "norema  ä `
 "noremap ä b
 "noremap Ä B
+noremap ä q
+noremap Ä @
+noremap ÄÄ @@
+
 noremap p g
 noremap P G
 noremap z z
@@ -64,45 +68,48 @@ noremap , s
 noremap – S
 noremap . r
 noremap • R
+noremap j y
+noremap J Y
+
 
 " Unmap printable characters from select mode
 
-silent! sunmap x
-silent! sunmap v
-silent! sunmap l
-silent! sunmap c
-silent! sunmap w
-silent! sunmap k
-silent! sunmap h
-silent! sunmap g
-silent! sunmap f
-silent! sunmap q
-silent! sunmap ß
-silent! sunmap u
-silent! sunmap i
-silent! sunmap a
-silent! sunmap e
-silent! sunmap o
-silent! sunmap s
-silent! sunmap n
-silent! sunmap r
-silent! sunmap t
-silent! sunmap d
-silent! sunmap y
-silent! sunmap ü
-silent! sunmap ö
-silent! sunmap ä
-silent! sunmap p
-silent! sunmap z
-silent! sunmap b
-silent! sunmap m
-silent! sunmap ,
-silent! sunmap .
-silent! sunmap j
+"silent! sunmap x
+"silent! sunmap v
+"silent! sunmap l
+"silent! sunmap c
+"silent! sunmap w
+"silent! sunmap k
+"silent! sunmap h
+"silent! sunmap g
+"silent! sunmap f
+"silent! sunmap q
+"silent! sunmap ß
+"silent! sunmap u
+"silent! sunmap i
+"silent! sunmap a
+"silent! sunmap e
+"silent! sunmap o
+"silent! sunmap s
+"silent! sunmap n
+"silent! sunmap r
+"silent! sunmap t
+"silent! sunmap d
+"silent! sunmap y
+"silent! sunmap ü
+"silent! sunmap ö
+"silent! sunmap ä
+"silent! sunmap p
+"silent! sunmap z
+"silent! sunmap b
+"silent! sunmap m
+"silent! sunmap ,
+"silent! sunmap .
+"silent! sunmap j
 
 
 " Visual block-mode map
-noremap & <C-v>
+noremap - <C-v>
 
 
 noremap pp gg
@@ -122,8 +129,8 @@ vnoremap ge aw
 " Diff commands
 noremap da do
 noremap de dp
-noremap d<Up> [c
-noremap d<Down> ]c
+noremap d<Up> [czz
+noremap d<Down> ]czz
 
 
 smapclear

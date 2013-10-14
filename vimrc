@@ -80,19 +80,13 @@ set formatoptions="cq"
 " Project Setup
 "==========
 
-"augroup ProjectSetup
-"	" force tabs in Makefiles
-"	autocmd FileType make set noexpandtab shiftwidth=4 softtabstop=4
-"	" Trailing whitespace and tabs are forbidden, so highlight them.
-"	highlight ForbiddenWhitespace ctermbg=red guibg=red
-"    " indentation rules for FFmpeg: 4 spaces, no tabs
-"    au BufRead,BufEnter /home/stev47/test/ffmpeg/* set expandtab shiftwidth=4 softtabstop=4 cindent
-"    au BufRead,BufEnter /home/stev47/test/ffmpeg/* match ForbiddenWhitespace /\s\+$\|\t/
-"    " Do not highlight spaces at the end of line while typing on that line.
-"    au BufRead,BufEnter /home/stev47/test/ffmpeg/* autocmd InsertEnter * match ForbiddenWhitespace /\t\|\s\+\%#\@<!$/
-"
-"    au BufRead,BufEnter /home/stev47/uni/ana3/* set expandtab shiftwidth=2 softtabstop=2 cindent
-"augroup END
+augroup ProjectSetup
+	" force tabs in Makefiles
+	autocmd FileType make set noexpandtab shiftwidth=4 softtabstop=4
+    " indentation rules for FFmpeg: 4 spaces, no tabs
+    au BufRead,BufEnter /home/stev47/test/ffmpeg/* set expandtab shiftwidth=4 softtabstop=4 cindent
+    au BufRead,BufEnter /home/stev47/uni/ana3/* set expandtab shiftwidth=2 softtabstop=2 cindent
+augroup END
 
 
 "=============
@@ -170,3 +164,9 @@ noremap <C-q> <Nop>
 " <C-m> is equivalent to <CR>, so this is no good idea
 "map <C-m> <Nop>
 
+
+if has("gui_running")
+	set lines=999 columns=999
+else
+
+endif
