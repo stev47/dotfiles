@@ -50,8 +50,8 @@ hi Todo         guifg=#000000 guibg=#e6ea50 gui=italic
 hi pythonOperator guifg=#7e8aa2 gui=none ctermfg=103
 
 " Diff highlighting
-highlight DiffAdd    cterm=bold ctermfg=10 ctermbg=17 gui=none guifg=bg guibg=Red
-highlight DiffDelete cterm=bold ctermfg=10 ctermbg=17 gui=none guifg=bg guibg=Red
-highlight DiffChange cterm=bold ctermfg=10 ctermbg=17 gui=none guifg=bg guibg=Red
-highlight DiffText   cterm=bold ctermfg=10 ctermbg=88 gui=none guifg=bg guibg=Red
+hi DiffAdd    guibg=#204420 gui=none
+hi DiffDelete guibg=#552020 gui=none
+hi DiffChange guibg=#202066 gui=none
+hi DiffText   guibg=#0000dd guifg=#ffffff gui=bold
 
