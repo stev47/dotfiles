@@ -161,6 +161,9 @@ map pt <Nop>
 map <C-w> <Nop>
 map d <Nop>
 noremap <C-q> <Nop>
+noremap q <Nop>
+noremap Q <Nop>
+noremap & <Nop>
 " <C-m> is equivalent to <CR>, so this is no good idea
 "map <C-m> <Nop>
 
