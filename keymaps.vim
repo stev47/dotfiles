@@ -26,8 +26,8 @@ noremap g a
 noremap G A
 noremap f c
 noremap F C
-noremap q v
-noremap Q V
+"noremap q v
+"noremap Q V
 noremap u b
 noremap U B
 noremap i t
@@ -71,6 +71,7 @@ noremap • R
 noremap j y
 noremap J Y
 
+noremap Q J
 
 " Unmap printable characters from select mode
 
@@ -107,6 +108,9 @@ noremap J Y
 "silent! sunmap .
 "silent! sunmap j
 
+vnoremap a f
+vnoremap i t
+
 
 " Visual block-mode map
 noremap - <C-v>
@@ -137,3 +141,5 @@ smapclear
 
 " Window key
 noremap v <C-w>
+
+

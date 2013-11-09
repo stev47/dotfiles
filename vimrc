@@ -12,6 +12,7 @@ source ~/.vim/keymaps.vim
 
 " My Bundles
 Bundle 'LaTeX-Box-Team/LaTeX-Box'
+let g:LatexBox_no_mappings = 1
 let g:LatexBox_latexmk_async = 1
 let g:LatexBox_quickfix = 1
 "let g:LatexBox_latexmk_options = '-pdflatex="TEXINPUTS=../common: pdflatex -synctex=1 %O %S"'
@@ -173,3 +174,10 @@ if has("gui_running")
 else
 
 endif
+
+
+" LaTeX-Mappings
+
+" Useful Mappings
+noremap <F7> :set ff=unix<CR>:set fileencoding=utf-8<CR>:set encoding=utf-8<CR>
+
