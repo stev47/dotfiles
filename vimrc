@@ -173,6 +173,7 @@ noremap & <Nop>
 
 if has("gui_running")
 	"set lines=999 columns=999
+	set guifont=Monospace\ 8
 else
 
 endif
