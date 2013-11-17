@@ -41,12 +41,11 @@ let g:UltiSnips.ExpandTrigger = "<Tab>"
 let g:UltiSnips.ListSnippets = "<C-Tab>"
 let g:UltiSnips.JumpForwardTrigger = "¿"
 let g:UltiSnips.JumpBackwardTrigger = "¡"
+let g:UltiSnips.EditSplit = 'vsplit'
 
 Bundle "MarcWeber/ultisnips"
 set rtp+=~/.vim/snippets
 
-" TODO: Doesn't work??
-let g:UltiSnipsEditSplit = 'vertical'
 
 
 "Bundle "Lokaltog/powerline"
