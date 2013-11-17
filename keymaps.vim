@@ -117,8 +117,13 @@ noremap - <C-v>
 
 
 noremap pp gg
+" Tab movement
 noremap pr gt
 noremap pn gT
+" select last search
+noremap pc gn
+" last visual selection
+noremap pt gv
 
 onoremap h i
 onoremap g a
