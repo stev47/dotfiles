@@ -120,7 +120,7 @@ nmap <Leader>ls :call LatexEvinceSearch()<Return>
 highlight TrailingWhitespace guibg=red ctermbg=red
 match TrailingWhitespace /\s\+$/
 " in insert mode, do not highlight whitespace preceding the cursor
-autocmd InsertEnter * match TrailingWhitespace /\(\s\%#\@!\)\+$/
+autocmd InsertEnter * match TrailingWhitespace /\%#\(\s\)\+$/
 autocmd InsertLeave * match TrailingWhitespace /\s\+$/
 
 
