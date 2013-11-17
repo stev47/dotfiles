@@ -20,6 +20,9 @@ let g:LatexBox_latexmk_options = '-synctex=1'
 let g:LatexBox_latexmk_env = 'TEXINPUTS=~/uni/common:'
 let g:LatexBox_show_warnings = 0
 
+let g:tex_flavor = 'latex'
+let g:tex_nospell = 1
+let g:tex_no_error = 1
 
 "Bundle 'flazz/vim-colorschemes'
 "Bundle "Lokaltog/vim-easymotion"
