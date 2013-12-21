@@ -1,0 +1,8 @@
+[user]
+	email = stephan@ecshi.net
+	name = Stephan Hilb
+[push]
+	default = simple
+[core]
+	editor = vim
+	excludesfile = /home/stev47/.gitignore
