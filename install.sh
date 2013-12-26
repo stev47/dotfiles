@@ -6,6 +6,7 @@ DIR=$(cd "$(dirname "$0")" && pwd)
 # Vim
 if [ ! -e ~/.vim ]; then
 	echo "Installing vim dotfiles."
+	rm -rf ~/.vim ~/.vimrc
 	ln -s $DIR/vim           ~/.vim
 	ln -s $DIR/vim/vimrc     ~/.vimrc
 	git clone https://github.com/gmarik/vundle.git $DIR/vim/bundle/vundle
@@ -17,6 +18,7 @@ fi
 # Git
 if [ ! -e ~/.gitconfig ]; then
 	echo "Installing git dotfiles."
+	rm -rf ~/.gitconfig ~/.gitignore
 	# before any "git config"
 	ln -s $DIR/git/gitconfig ~/.gitconfig
 
