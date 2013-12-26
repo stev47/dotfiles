@@ -172,6 +172,7 @@ noremap & <Nop>
 
 
 if has("gui_running")
+	set guioptions -=T " hide toolbar
 	"set lines=999 columns=999
 	if hostname() == "st-nb"
 		set guifont=Monospace\ 8
