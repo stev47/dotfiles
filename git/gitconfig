@@ -1,8 +1,17 @@
 [user]
 	email = stephan@ecshi.net
 	name = Stephan Hilb
+	signingkey = 887DB9DC
+[core]
+	excludesfile = /home/stev47/.gitignore
+	editor = vim
 [push]
 	default = simple
-[core]
-	editor = vim
-	excludesfile = /home/stev47/.gitignore
+[sendemail]
+	smtpserver = /usr/bin/msmtp
+	chainreplyto = false
+	suppresscc = self
+	confirm = always
+[i18n]
+	logoutputencoding = utf8
+
