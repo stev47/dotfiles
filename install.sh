@@ -28,3 +28,11 @@ else
 	echo "Found '~/.gitconfig', not doing anything."
 fi
 
+# screen
+if [ ! -e ~/.screenrc ]; then
+	echo "Installing screen dotfiles."
+	rm -rf ~/.screenrc
+	ln -s $DIR/screen/screenrc ~/.screenrc
+else
+	echo "Found '~/.screenrc', not doing anything."
+fi
