@@ -15,7 +15,7 @@ Bundle 'LaTeX-Box-Team/LaTeX-Box'
 let g:LatexBox_no_mappings = 1
 let g:LatexBox_latexmk_async = 1
 let g:LatexBox_quickfix = 1
-let g:LatexBox_latexmk_options = ' -e ' . shellescape('$pdflatex=q/xelatex %O %S/')
+let g:LatexBox_latexmk_options = ' -synctex=1 -e ' . shellescape('$pdflatex=q/xelatex %O %S/')
 let g:LatexBox_latexmk_env = 'TEXINPUTS=~/uni/common:'
 let g:LatexBox_show_warnings = 0
 
