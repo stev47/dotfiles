@@ -3,7 +3,7 @@
 	name = Stephan Hilb
 	signingkey = 887DB9DC
 [core]
-	excludesfile = /home/stev47/.gitignore
+	excludesfile = ~/.gitignore
 	editor = vim
 [push]
 	#default = simple
