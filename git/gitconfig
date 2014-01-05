@@ -6,7 +6,8 @@
 	excludesfile = /home/stev47/.gitignore
 	editor = vim
 [push]
-	default = simple
+	#default = simple
+	default = current # for compatibility with older git versions
 [sendemail]
 	smtpserver = /usr/bin/msmtp
 	chainreplyto = false
