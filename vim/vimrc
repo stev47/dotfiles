@@ -107,6 +107,7 @@ augroup END
 
 
 
+set noswapfile
 
 
 colorscheme mustang
