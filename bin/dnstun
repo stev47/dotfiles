@@ -1,0 +1,79 @@
+#!/bin/bash
+
+# Top-level domain name where iodined listens on
+IO_DOMAIN=""
+# The tunnel-ip of the iodined server
+IO_SERVER=""
+# iodined password
+IO_PW=""
+# VPN configs
+VPN_CONF=""
+VPN_REMOTE=""
+
+# Optional stuff
+
+# The DNS nameserver to use for tunnel requests
+NAMESERVER="" # e.g. 8.8.8.8
+# The default gateway. All DNS requests will go there.
+# you probably want to obtain it automatically
+GATEWAY="" # e.g. 192.168.1.1
+
+
+[ -f /root/dnstun.conf ] && . /root/dnstun.conf
+
+
+
+[ `id -u` -ne 0 ] && echo "I need to be root!" && exit
+
+while getopts "n:p" opt; do
+	case $opt in
+		n) NAMESERVER=$OPTARG;;
+		p) VPN=true;;
+	esac
+done
+shift $((OPTIND-1))
+
+# Get default nameserver if not set explicitly
+[ -z $NAMESERVER ] && NAMESERVER=`grep nameserver /etc/resolv.conf | cut -d\  -f2 | head -1`
+[ -z $GATEWAY ] && GATEWAY=`route -n | awk '/^0\.0\.0\.0.*G/{print $2}'`
+IO_ARG=$@
+
+echo "Current gateway : $GATEWAY"
+echo "Nameserver      : $NAMESERVER"
+echo "Toplevel domain : $IO_DOMAIN"
+echo "iodine server-ip: $IO_SERVER"
+echo "iodine arguments: $IO_ARG"
+echo
+
+iodine -rP "$IO_PW" $IO_ARG $NAMESERVER $IO_DOMAIN
+[ $? -ne 0 ] && echo -e "\nIodine returned error code! Exiting …" && exit
+
+route add $NAMESERVER gw $GATEWAY
+
+route del default
+route add default gw $IO_SERVER
+
+if [ $VPN ]; then
+	#route add $VPN_REMOTE gw $IO_SERVER
+	openvpn --redirect-gateway --config $VPN_CONF &
+fi
+
+echo -e "\nDNS Tunnel established … Press Enter to close it."
+read
+# Closing tunnel …
+
+[ $VPN ] && killall openvpn
+
+killall iodine
+route del $NAMESERVER
+route add default gw $GATEWAY
+
+
+
+
+exit
+
+
+
+
+

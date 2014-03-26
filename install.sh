@@ -36,3 +36,11 @@ if [ ! -e ~/.screenrc ]; then
 else
 	echo "Found '~/.screenrc', not doing anything."
 fi
+
+# personal bin files
+if [ ! -d ~/bin ]; then
+	echo "Installing binary dir."
+	ln -s $DIR/bin ~/bin
+else
+	echo "Found '~/bin', not doing anything."
+fi
