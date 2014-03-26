@@ -23,7 +23,7 @@ if [ ! -e ~/.gitconfig ]; then
 	ln -s $DIR/git/gitconfig ~/.gitconfig
 
 	ln -s $DIR/git/gitignore ~/.gitignore
-	git config --global core.excludesfile ~/.gitignore
+	git config --global core.excludesfile "~/.gitignore"
 else
 	echo "Found '~/.gitconfig', not doing anything."
 fi
