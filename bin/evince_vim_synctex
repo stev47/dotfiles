@@ -1,6 +1,9 @@
 #!/bin/sh
-#EDITORCMD="gvim --servername '`basename "$1" .pdf`' --remote-silent '+%l<Enter>' %f"
-EDITORCMD="gvim --servername $1 --remote-send ':call foreground()<CR>' --remote-silent '+%l<Enter>zz<Enter>' %f"
+
+GVIM_SERVERNAME=$1
+
+EDITORCMD="gvim --servername $GVIM_SERVERNAME --remote-send '<Esc>:call foreground()<CR>' --remote-silent '+%l<Enter>' %f"
+
 # Highlight matched column
 #EDITORCMD="gvim --servername '`basename "$1" .pdf`' --remote-silent '+%l<Enter>:match Search /\%%ll/' %f"
 
@@ -12,6 +15,8 @@ if [ -f "$PDFFILE" ];then
 		evince_backward_search "$PDFFILE" "$EDITORCMD"&
 		BACKWARD_SEARCH_PID=$!
 		echo $BACKWARD_SEARCH_PID
+	else
+		echo "Couldn't find ${PDFFILE%%.pdf}.synctex.gz"
 	fi
 fi
 
