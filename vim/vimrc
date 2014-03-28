@@ -202,3 +202,5 @@ endif
 " Useful Mappings
 noremap <F7> :set ff=unix<CR>:set fileencoding=utf-8<CR>:set encoding=utf-8<CR>
 
+" Remove whitespace at end of line
+noremap <F8> :%s/\s\+$//g<CR>
