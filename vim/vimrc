@@ -44,6 +44,8 @@ let g:tex_no_error = 1
 "Bundle "MarcWeber/vim-addon-mw-utils"
 Bundle "tomtom/tlib_vim"
 
+" Autodetect indent style
+Bundle "tpope/vim-sleuth"
 
 let g:UltiSnips = {}
 let g:UltiSnips.ExpandTrigger = "<Tab>"
