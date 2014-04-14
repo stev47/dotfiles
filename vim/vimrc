@@ -13,19 +13,13 @@ source ~/.vim/keymaps.vim
 " My Bundles
 
 Bundle 'sgeb/vim-matlab'
-" Beware! match return 0 on success and -1 on failure
-if !match(hostname(), '^stud')
-	let g:mlint_path_to_mlint='/opt/matlab/bin/glnxa64/mlint'
-else
-	let g:mlint_path_to_mlint='/usr/local/MATLAB/R2013a/bin/glnxa64/mlint'
-endif
 
 
 Bundle 'LaTeX-Box-Team/LaTeX-Box'
 let g:LatexBox_no_mappings = 1
 let g:LatexBox_latexmk_async = 1
 let g:LatexBox_quickfix = 1
-let g:LatexBox_latexmk_options = ' -e ' . shellescape('$pdflatex=q/xelatex -synctex=1 %O %S/')
+let g:LatexBox_latexmk_options = ' -e ' . shellescape('$pdflatex=q/xelatex -synctex=1 -shell-escape %O %S/')
 let g:LatexBox_latexmk_env = 'TEXINPUTS=~/uni/common:'
 let g:LatexBox_show_warnings = 0
 
@@ -204,3 +198,27 @@ noremap <F7> :set ff=unix<CR>:set fileencoding=utf-8<CR>:set encoding=utf-8<CR>
 
 " Remove whitespace at end of line
 noremap <F8> :%s/\s\+$//g<CR>
+
+
+" Workstation specific stuff
+"============================
+
+" Beware! match returns index on success and -1 on failure
+if match(hostname(), '^stud') != -1
+
+	let g:mlint_path_to_mlint='/opt/matlab/bin/glnxa64/mlint'
+
+elseif match(hostname(), 'nb$') != -1
+
+	let g:loaded_matchparen = 0
+	let g:LatexBox_loaded_matchparen = 1 " Not setting slows down editing considerably
+	" These are useful even if LatexBox_loaded_matchparen is set
+	" fixme: LatexBox shouldn't leave these out
+	nmap <buffer> % <Plug>LatexBox_JumpToMatch
+	vmap <buffer> % <Plug>LatexBox_JumpToMatch
+	omap <buffer> % <Plug>LatexBox_JumpToMatch
+
+else
+
+	let g:mlint_path_to_mlint='/usr/local/MATLAB/R2013a/bin/glnxa64/mlint'
+endif
