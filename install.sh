@@ -44,3 +44,11 @@ if [ ! -d ~/bin ]; then
 else
 	echo "Found '~/bin', not doing anything."
 fi
+
+# bashrc
+if [ ! -e ~/.bashrc ]; then
+	echo "Installing bashrc."
+	ln -s $DIR/bash/bashrc ~/.bashrc
+else
+	echo "Found '~/.bashrc', not doing anything."
+fi
