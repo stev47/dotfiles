@@ -10,6 +10,8 @@ HISTFILESIZE=10000
 
 export TERM=xterm-256color
 
+set +o ignoreeof
+
 # my colored bash-prompt
 set_prompt () {
     local last_exit_status=$?
