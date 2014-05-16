@@ -156,10 +156,14 @@ inoremap <PageDown> <Esc>m"10<C-E>`"a
 noremap <BS> X
 noremap <Del> x
 
+" LaTeX mappings
+"================
+
 " Latex \[ \] --> \begin{align*} \end{align*}
 nmap <Leader>la		<Plug>LatexChangeEnvalign*<Return>
 nmap <Leader>lce		<Plug>LatexChangeEnv
 
+map <Leader>lfm    :Tabularize/&<Return>:Tabularize/\\\\<Return>
 
 " Horizontal Scrolling
 map <S-ScrollWheelUp> 10zh
