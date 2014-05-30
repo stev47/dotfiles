@@ -52,3 +52,11 @@ if [ ! -e ~/.bashrc ]; then
 else
 	echo "Found '~/.bashrc', not doing anything."
 fi
+
+# .profile
+if [ ! -e ~/.profile ]; then
+	echo "Installing .profile"
+	ln -s $DIR/profile ~/.profile
+else
+	echo "Found '~/.profile', not doing anything."
+fi
