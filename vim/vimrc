@@ -18,10 +18,11 @@ Bundle 'sgeb/vim-matlab'
 Bundle 'LaTeX-Box-Team/LaTeX-Box'
 let g:LatexBox_no_mappings = 1
 let g:LatexBox_latexmk_async = 1
-let g:LatexBox_quickfix = 1
+let g:LatexBox_quickfix = 2
 let g:LatexBox_latexmk_options = ' -e ' . shellescape('$pdflatex=q/xelatex -synctex=1 -shell-escape %O %S/')
 let g:LatexBox_latexmk_env = 'TEXINPUTS=~/uni/common:'
-let g:LatexBox_show_warnings = 0
+let g:LatexBox_show_warnings = 1
+let g:LatexBox_ignore_warnings = ['Underfull', 'Overfull']
 
 let g:tex_flavor = 'latex'
 let g:tex_nospell = 1
