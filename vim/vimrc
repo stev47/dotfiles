@@ -204,6 +204,8 @@ noremap <F7> :set ff=unix<CR>:set fileencoding=utf-8<CR>:set encoding=utf-8<CR>
 " Remove whitespace at end of line
 noremap <F8> :%s/\s\+$//g<CR>
 
+noremap <F9> :set ts=8<CR>:set et<CR>:set sw=4<CR>
+
 
 " Workstation specific stuff
 "============================
