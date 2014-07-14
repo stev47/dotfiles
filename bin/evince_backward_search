@@ -118,7 +118,14 @@ class EvinceWindowProxy:
 ## This file offers backward search in any editor.
 ##  evince_dbus  pdf_file  line_source input_file
 if __name__ == '__main__':
-    import dbus.mainloop.glib, gobject, glib, sys, os
+    import dbus.mainloop.glib, sys, os
+
+    try:
+        import gobject, glib
+    except ImportError:
+        import gi._gobject, gi._glib
+        gobject = gi._gobject
+        glib = gi._glib
 
     def print_usage():
         print("""Usage:
