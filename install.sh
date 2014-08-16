@@ -1,62 +1,45 @@
 #!/bin/bash
+set -o nounset
+set -o errexit
 
 # directory of this script, i.e. root of the repository
-DIR=$(cd "$(dirname "$0")" && pwd)
+source_dir=$(cd "$(dirname "$0")" && pwd)
+overwrite=false
 
-# Vim
-if [ ! -e ~/.vim ]; then
-	echo "Installing vim dotfiles."
-	rm -rf ~/.vim ~/.vimrc
-	ln -s $DIR/vim           ~/.vim
-	ln -s $DIR/vim/vimrc     ~/.vimrc
-	git clone https://github.com/gmarik/vundle.git $DIR/vim/bundle/vundle
+function install_symlink {
+	[ $overwrite = true ] && rm -rf "$2";
+
+	if [ -e "$2" ]; then
+		echo "\"$2\" exists already, skipped.";
+	else
+		ln -s "$source_dir/$1" "$2";
+	fi
+
+	return 0;
+}
+
+# === Vim ===
+install_symlink vim ~/.vim
+install_symlink vim/vimrc ~/.vimrc
+if [ ! -e $source_dir/vim/bundle/vundle ]; then
+	git clone https://github.com/gmarik/vundle.git $source_dir/vim/bundle/vundle
 	vim -c "BundleInstall" -c ":qa"
-else
-	echo "Found '~/.vim', not doing anything."
 fi
 
-# Git
-if [ ! -e ~/.gitconfig ]; then
-	echo "Installing git dotfiles."
-	rm -rf ~/.gitconfig ~/.gitignore
-	# before any "git config"
-	ln -s $DIR/git/gitconfig ~/.gitconfig
+# === Git ===
+#before any "git config"
+install_symlink git/gitconfig ~/.gitconfig
+install_symlink git/gitignore ~/.gitignore
+#git config --global core.excludesfile "~/.gitignore"
 
-	ln -s $DIR/git/gitignore ~/.gitignore
-	git config --global core.excludesfile "~/.gitignore"
-else
-	echo "Found '~/.gitconfig', not doing anything."
-fi
+# === screen ===
+install_symlink screen/screenrc ~/.screenrc
 
-# screen
-if [ ! -e ~/.screenrc ]; then
-	echo "Installing screen dotfiles."
-	rm -rf ~/.screenrc
-	ln -s $DIR/screen/screenrc ~/.screenrc
-else
-	echo "Found '~/.screenrc', not doing anything."
-fi
+# === personal bin dir ===
+install_symlink bin ~/bin
 
-# personal bin files
-if [ ! -d ~/bin ]; then
-	echo "Installing binary dir."
-	ln -s $DIR/bin ~/bin
-else
-	echo "Found '~/bin', not doing anything."
-fi
+# === bashrc ===
+install_symlink bash/bashrc ~/.bashrc
 
-# bashrc
-if [ ! -e ~/.bashrc ]; then
-	echo "Installing bashrc."
-	ln -s $DIR/bash/bashrc ~/.bashrc
-else
-	echo "Found '~/.bashrc', not doing anything."
-fi
-
-# .profile
-if [ ! -e ~/.profile ]; then
-	echo "Installing .profile"
-	ln -s $DIR/profile ~/.profile
-else
-	echo "Found '~/.profile', not doing anything."
-fi
+# === .profile ===
+install_symlink profile ~/.profile
