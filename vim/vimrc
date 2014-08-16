@@ -65,6 +65,10 @@ Bundle "digitaltoad/vim-jade"
 " fugitive - git plugin
 Bundle "tpope/vim-fugitive"
 
+" vim-markdown - with github flavored markdown
+Bundle "gabrielelana/vim-markdown"
+let g:markdown_enable_insert_mode_mappings = 0
+
 " Tabular plugin (aligning text)
 Bundle "godlygeek/tabular"
 
@@ -88,6 +92,7 @@ syntax on
 set autoindent
 set smartindent
 set formatoptions="cq"
+set spelllang=""        " vim-markdown decides to switch it on if it's not empty
 
 "==========
 " Project Setup
