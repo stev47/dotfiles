@@ -43,3 +43,6 @@ install_symlink bash/bashrc ~/.bashrc
 
 # === .profile ===
 install_symlink profile ~/.profile
+
+# === nodejs ===
+install_symlink nodejs/npmrc ~/.npmrc
