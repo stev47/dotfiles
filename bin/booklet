@@ -1,0 +1,44 @@
+#!/bin/bash
+
+if [ $# -eq 0 ]; then
+	echo -e "usage: booklet [-p <pages>] [-s <pages-per-signature>]\n" \
+		     "              [-o <output-pdf>] <input-pdf>"
+	exit 0;
+fi
+
+export PAGES="pages=-"
+export SIGNATURE="booklet=true"
+
+while getopts "p:s:o:" opt; do
+	case "$opt" in
+		p)  export PAGES="pages={$OPTARG}"
+			;;
+		s)  export SIGNATURE="signature=$OPTARG"
+			;;
+		o)  export BOOKLET_TARGET_NAME="${OPTARG%.*}"
+			;;
+	esac
+done
+shift $((OPTIND-1))
+
+export BOOKLET_SOURCE="$@"
+
+if [ -z $BOOKLET_TARGET_NAME ]; then
+	export BOOKLET_TARGET_NAME="${@%.*}-booklet"
+fi
+
+
+echo "\\documentclass{article} \
+\\usepackage[a4paper]{geometry} \
+\\usepackage[pdftex]{color,graphicx,epsfig} \
+\\usepackage{pdfpages} \
+\\begin{document} \
+\\includepdf[${PAGES},${SIGNATURE},landscape]{${BOOKLET_SOURCE}} \
+\\end{document}" > ${BOOKLET_TARGET_NAME}.tex
+
+#\\includepdf[${PAGES},${SIGNATURE},landscape,delta=0 2.5cm,pagetemplate=5]{${BOOKLET_SOURCE}} \
+
+pdflatex ${BOOKLET_TARGET_NAME}.tex
+
+rm -f ${BOOKLET_TARGET_NAME}.{tex,aux,log}
+
