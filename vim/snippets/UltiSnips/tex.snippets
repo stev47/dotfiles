@@ -56,3 +56,23 @@ snippet =box "Box using =" b
 %% ${1:${VISUAL:Title}}
 %%=======================================================================
 endsnippet
+
+snippet obar "overbar" w
+\_{${1:${VISUAL}}}
+endsnippet
+snippet frac "Fraction" w
+\frac{${1}}{${2}}
+endsnippet
+
+snippet sum "Sum" w
+\sum_{${1}}^{${2}} ${3}
+endsnippet
+snippet binom "Binomial" w
+\binom{${1}}{${2}}
+endsnippet
+
+snippet seg "Segment environment" b
+\\begin{seg}{${1}}
+	${2:${VISUAL}}
+\\end{seg}
+endsnippet
