@@ -115,6 +115,9 @@ augroup END
 
 " do not redraw in the midst of non-typed commands/macros
 set lazyredraw
+
+" mimic word-delete by ctrl+backspace
+inoremap <C-BS> <Esc>dbi<Del>
 set noswapfile
 
 
