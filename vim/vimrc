@@ -118,6 +118,12 @@ set lazyredraw
 
 " mimic word-delete by ctrl+backspace
 inoremap <C-BS> <Esc>dbi<Del>
+
+
+" latex specific things
+autocmd FileType tex source ~/.vim/latex.vim
+
+
 set noswapfile
 
 
