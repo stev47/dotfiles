@@ -113,6 +113,8 @@ augroup END
 
 
 
+" do not redraw in the midst of non-typed commands/macros
+set lazyredraw
 set noswapfile
 
 
