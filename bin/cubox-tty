@@ -1,0 +1,13 @@
+#!/bin/bash
+
+TTYBASE=/dev/ttyUSB
+
+for i in {0..9}; do
+	if [ -e $TTYBASE$i ]; then
+		screen $TTYBASE$i 115200
+		break;
+	fi
+done
+
+
+
