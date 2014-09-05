@@ -46,3 +46,6 @@ install_symlink profile ~/.profile
 
 # === nodejs ===
 install_symlink nodejs/npmrc ~/.npmrc
+
+# === keyboard layout ===
+$source_dir/bin/keyboard-layout neo2-numlvl3 2&> /dev/null

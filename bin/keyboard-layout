@@ -1,0 +1,11 @@
+#!/bin/bash
+
+if [ $# -eq 0 ]; then
+	echo -e "usage: $0 de-nodeadkeys|neo2-numlvl3 \n"
+	exit 0;
+fi
+
+(
+cd ~/dotfiles/xkb
+xkbcomp -w 0 "$1".xkb $DISPLAY
+)
