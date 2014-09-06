@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # node binaries
-[ -d ~/.node_modules/bin ] && export PATH=~/.nodejs/modules/bin:${PATH}
+[ -d ~/.nodejs/modules/bin ] && export PATH=~/.nodejs/modules/bin:${PATH}
 # personal binary path
 [ -d ~/bin ] && export PATH=~/bin:${PATH}
 
