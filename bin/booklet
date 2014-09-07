@@ -1,4 +1,6 @@
 #!/bin/bash
+#
+# TODO: allow spaces in filenames, tex has problems with it
 
 if [ $# -eq 0 ]; then
 	echo -e "usage: booklet [-p <pages>] [-s <pages-per-signature>]\n" \
