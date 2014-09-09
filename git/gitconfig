@@ -16,3 +16,5 @@
 [i18n]
 	logoutputencoding = utf8
 
+[branch "master"]
+	rebase = true
