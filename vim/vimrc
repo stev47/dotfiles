@@ -65,6 +65,11 @@ Bundle "digitaltoad/vim-jade"
 " fugitive - git plugin
 Bundle "tpope/vim-fugitive"
 
+nnoremap <leader>gc :Gcommit -v -q<CR>
+nnoremap <leader>gd :Gdiff<CR>
+
+
+
 " vim-markdown - with github flavored markdown
 Bundle "gabrielelana/vim-markdown"
 let g:markdown_enable_insert_mode_mappings = 0
