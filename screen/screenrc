@@ -1,3 +1,6 @@
+defc1           off
+defutf8         on
+encoding        UTF-8 UTF-8
 term            screen-256color
 startup_message off
 vbell           off
