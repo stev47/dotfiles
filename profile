@@ -2,6 +2,8 @@
 
 # node binaries
 [ -d ~/.nodejs/modules/bin ] && export PATH=~/.nodejs/modules/bin:${PATH}
+# ruby gems
+[ -d ~/.gem/ruby/2.1.0/bin ] && export PATH=~/.gem/ruby/2.1.0/bin:${PATH}
 # personal binary path
 [ -d ~/bin ] && export PATH=~/bin:${PATH}
 
