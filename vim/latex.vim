@@ -43,7 +43,7 @@ inoremap Π \Pi
 inoremap Σ \Sigma
 "inoremap τ \tau
 "inoremap υ \upsilon
-"inoremap φ \phi
+inoremap Φ \Phi
 "inoremap χ \chi
 "inoremap ψ \psi
 inoremap Ω \Omega
