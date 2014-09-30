@@ -1,29 +1,29 @@
 #!/bin/sh
 
 GVIM_SERVERNAME=$1
-
+PDFFILE="$2"
 EDITORCMD="gvim --servername $GVIM_SERVERNAME --remote-send '<Esc>:call foreground()<CR>' --remote-silent '+%l<Enter>zz' %f"
-
 # Highlight matched column
 #EDITORCMD="gvim --servername '`basename "$1" .pdf`' --remote-silent '+%l<Enter>:match Search /\%%ll/' %f"
 
-PDFFILE="$2"
-if [ -f "$PDFFILE" ];then
-	# danke an Feuerfieber
-	# http://forum.ubuntuusers.de/topic/evince-synctex-vim-emacs-scite-lyx-kile-editor/#post-2841828
-	if [ -f "${PDFFILE%%.pdf}.synctex.gz" ];then
-		evince_backward_search "$PDFFILE" "$EDITORCMD"&
-		BACKWARD_SEARCH_PID=$!
-		echo "Backward search deamon running with pid" $BACKWARD_SEARCH_PID
-	else
-		echo "Couldn't find ${PDFFILE%%.pdf}.synctex.gz"
-	fi
+if [ $# -eq 0 ]; then
+	echo -e "usage: $0 <vim-servername> <pdf-file>"
+	exit 0;
 fi
 
-echo "Starting evince and waiting ..."
-/usr/bin/evince "$2"
+[ -f "$PDFFILE" ] || \
+	(echo "no such pdf file" && exit 1);
+[ -f "${PDFFILE%%.pdf}.synctex.gz" ] || \
+	(echo "missing file ${PDFFILE%%.pdf}.synctex.gz" && exit 1);
+
+evince_backward_search "$PDFFILE" "$EDITORCMD"&
+BACKWARD_SEARCH_PID=$!
+echo "Backward search daemon running with pid $BACKWARD_SEARCH_PID"
+
+echo "Starting evince and waiting …"
+/usr/bin/evince "$PDFFILE"
 
 if [ "$BACKWARD_SEARCH_PID" ];then
-	echo "Killing $BACKWARD_SEARCH_PID"
+	echo "Killing backward search daemon $BACKWARD_SEARCH_PID …"
 	kill $BACKWARD_SEARCH_PID
 fi
