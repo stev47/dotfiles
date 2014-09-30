@@ -65,8 +65,11 @@ Bundle "digitaltoad/vim-jade"
 " fugitive - git plugin
 Bundle "tpope/vim-fugitive"
 
+nnoremap <leader>gw :Gwrite<CR>
 nnoremap <leader>gc :Gcommit -v -q<CR>
+nnoremap <leader>gt :Gcommit -v -q %:p<CR>
 nnoremap <leader>gd :Gdiff<CR>
+nnoremap <leader>gs :Gstatus<CR>
 
 
 
