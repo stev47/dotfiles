@@ -2,6 +2,8 @@
 #
 # TODO: allow spaces in filenames, tex has problems with it
 
+COMPILE_PATH=/tmp
+
 if [ $# -eq 0 ]; then
 	echo -e "usage: booklet [-p <pages>] [-s <pages-per-signature>]\n" \
 		     "              [-o <output-pdf>] <input-pdf>"
@@ -23,7 +25,7 @@ while getopts "p:s:o:" opt; do
 done
 shift $((OPTIND-1))
 
-export BOOKLET_SOURCE="$@"
+export BOOKLET_SOURCE="`realpath $@`"
 
 if [ -z $BOOKLET_TARGET_NAME ]; then
 	export BOOKLET_TARGET_NAME="${@%.*}-booklet"
@@ -36,11 +38,14 @@ echo "\\documentclass{article} \
 \\usepackage{pdfpages} \
 \\begin{document} \
 \\includepdf[${PAGES},${SIGNATURE},landscape]{${BOOKLET_SOURCE}} \
-\\end{document}" > ${BOOKLET_TARGET_NAME}.tex
+\\end{document}" > "${COMPILE_PATH}/${BOOKLET_TARGET_NAME}.tex"
 
 #\\includepdf[${PAGES},${SIGNATURE},landscape,delta=0 2.5cm,pagetemplate=5]{${BOOKLET_SOURCE}} \
 
+cd ${COMPILE_PATH}
 pdflatex ${BOOKLET_TARGET_NAME}.tex
+cd -
+mv "${COMPILE_PATH}/${BOOKLET_TARGET_NAME}.pdf" ./
+rm -f "${COMPILE_PATH}/${BOOKLET_TARGET_NAME}.{pdf,tex,aux,log}"
 
-rm -f ${BOOKLET_TARGET_NAME}.{tex,aux,log}
 
