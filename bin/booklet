@@ -18,11 +18,11 @@ TRIMV="0"
 
 while getopts "p:s:o:h:v:" opt; do
 	case "$opt" in
-		p)  export PAGES="pages={$OPTARG}"
+		p) PAGES="pages={$OPTARG}"
 			;;
-		s)  export SIGNATURE="signature=$OPTARG"
+		s) SIGNATURE="signature=$OPTARG"
 			;;
-		o)  export BOOKLET_TARGET_NAME="${OPTARG%.*}"
+		o) BOOKLET_TARGET_NAME="${OPTARG%.*}"
 			;;
 		h) TRIMH="${OPTARG}"
 			;;
