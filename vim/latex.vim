@@ -50,6 +50,7 @@ inoremap Ω \Omega
 
 inoremap ϵ \in
 inoremap ∞ \infty
+inoremap ℕ \N
 inoremap ℤ \Z
 inoremap ℝ \R
 inoremap ℂ \C
