@@ -20,7 +20,7 @@ function install_symlink {
 
 # === misc config ===
 for f in $source_dir/config/*; do
-	install_symlink ${f##*/} ~/.config/${f##*/}
+	install_symlink config/${f##*/} ~/.config/${f##*/}
 done
 
 
