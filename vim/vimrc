@@ -256,5 +256,5 @@ else
     autocmd InsertEnter * match TrailingWhitespace /\s\+\%#\@!$/
     autocmd InsertLeave * match TrailingWhitespace /\s\+$/
 
-    let g:mlint_path_to_mlint='/usr/local/MATLAB/R2013a/bin/glnxa64/mlint'
+    "let g:mlint_path_to_mlint='/usr/local/MATLAB/R2013a/bin/glnxa64/mlint'
 endif
