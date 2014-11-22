@@ -25,7 +25,7 @@ inoremap ω \omega
 
 "inoremap α \alpha
 "inoremap β \beta
-"inoremap γ \gamma
+inoremap Γ \Gamma
 inoremap Δ \Delta
 "inoremap ε \epsilon
 "inoremap ζ \zeta
