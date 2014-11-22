@@ -18,6 +18,12 @@ function install_symlink {
 	return 0;
 }
 
+# === misc config ===
+for f in $source_dir/config/*; do
+	install_symlink ${f##*/} ~/.config/${f##*/}
+done
+
+
 # === Vim ===
 install_symlink vim ~/.vim
 install_symlink vim/vimrc ~/.vimrc
