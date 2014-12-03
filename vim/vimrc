@@ -138,15 +138,20 @@ set noswapfile
 colorscheme mustang
 
 function! LatexSetViewer()
-	let g:LatexBox_viewer = "evince_vim_synctex " . v:servername
+    "let g:LatexBox_viewer = "evince_vim_synctex " . v:servername
+    let g:LatexBox_viewer = "zathura -x " . shellescape("gvim --servername " . v:servername . " --remote-send '<Esc>:call foreground()<CR>' --remote-silent '+\\%{line}<Enter>zz' \\%{input}")
 endfun
 au BufEnter *.tex call LatexSetViewer()
 
-function! LatexEvinceSearch()
-	silent! call system('evince_forward_search "'. LatexBox_GetOutputFile(). '" ' . line('.') . ' ' . expand("%:p"))
+"function! LatexEvinceSearch()
+"    silent! call system('evince_forward_search "'. LatexBox_GetOutputFile(). '" ' . line('.') . ' ' . expand("%:p"))
+"endfun
+
+function! LatexForwardSearch ()
+    silent! call system('zathura --synctex-forward ' . line('.') . ':' . col('.') . ':' . expand('%:p') . ' ' . 'course.pdf')
 endfun
-"nmap ls :silent call LatexEvinceSearch()<Return>
-nmap <Leader>ls :call LatexEvinceSearch()<Return>
+
+nmap <Leader>ls :silent call LatexForwardSearch()<Return>
 "nmap <Leader>lv :LatexView<Return>
 
 
