@@ -1,13 +1,7 @@
-snippet amt "Aligned math" b
-\begin{align*}
-	${1:${VISUAL}}
-\end{align*}
-endsnippet
-
 snippet mt "Math environment" b
-\[
+\begin{math}
 	${1:${VISUAL/^\s*//}}
-\]
+\end{math}
 endsnippet
 
 snippet ol "Ordered List" b
@@ -69,6 +63,18 @@ snippet sum "Sum" w
 endsnippet
 snippet binom "Binomial" w
 \binom{${1}}{${2}}
+endsnippet
+snippet inf "Infimum" w
+\inf_{${1}} ${2}
+endsnippet
+snippet sup "Supremum" w
+\sup_{${1}} ${2}
+endsnippet
+snippet min "Minimum" w
+\min_{${1}} ${2}
+endsnippet
+snippet max "Maximum" w
+\max_{${1}} ${2}
 endsnippet
 
 snippet seg "Segment environment" b
