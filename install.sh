@@ -57,5 +57,8 @@ install_symlink nodejs/npmrc ~/.npmrc
 # === pacaur ===
 install_symlink pacaur/config ~/.config/pacaur
 
+# === jumanji ===
+install_symlink jumanji/jumanjirc ~/.config/jumanji/jumanjirc
+
 # === keyboard layout ===
 $source_dir/bin/keyboard-layout neo2-numlvl3 2&> /dev/null
