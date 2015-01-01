@@ -12,6 +12,7 @@ function install_symlink {
 	if [ -e "$2" ]; then
 		echo "\"$2\" exists already, skipped.";
 	else
+		mkdir -p "${2%/*}";
 		ln -s "$source_dir/$1" "$2";
 	fi
 
