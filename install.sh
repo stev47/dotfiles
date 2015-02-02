@@ -64,5 +64,8 @@ install_symlink jumanji/jumanjirc ~/.config/jumanji/jumanjirc
 install_symlink gtk/gtkrc-2.0 ~/.gtkrc-2.0
 install_symlink gtk/settings.ini ~/.config/gtk-3.0/settings.ini
 
+# === i3 ===
+install_symlink i3/config ~/.config/i3/config
+
 # === keyboard layout ===
 $source_dir/bin/keyboard-layout neo2-numlvl3 2&> /dev/null
