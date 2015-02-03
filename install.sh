@@ -66,6 +66,7 @@ install_symlink gtk/settings.ini ~/.config/gtk-3.0/settings.ini
 
 # === i3 ===
 install_symlink i3/config ~/.config/i3/config
+install_symlink i3status/config ~/.config/i3status/config
 
 # === keyboard layout ===
 $source_dir/bin/keyboard-layout neo2-numlvl3 2&> /dev/null
