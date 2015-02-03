@@ -1,8 +1,10 @@
 map <BackSpace> navigate_history back
 map <Delete> navigate_history back
 
-set default-font-size 9
+set default-font-size 7
 #set default-monospace-font-size 10
-set font "monospace normal 8"
+set font "monospace normal 7"
 
 searchengine ggl https://google.com/search?q=%s
+
+map ? focus_inputbar ":open "
