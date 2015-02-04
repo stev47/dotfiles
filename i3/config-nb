@@ -1,10 +1,10 @@
 # my i3 config
 
-font pango:DejaVu Sans Mono 8
+font pango:DejaVu Sans Mono 7
 
 workspace_layout tabbed
 
-new_window pixel2
+new_window 1pixel
 
 #set $NeoMod3 Mod5
 #set $NeoMod4 Mod3

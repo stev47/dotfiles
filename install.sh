@@ -2,6 +2,20 @@
 set -o nounset
 set -o errexit
 
+if [ $# -eq 0 ]; then
+	echo -e "usage: ./install.sh [-w (dt|nb)]"
+	exit 0;
+fi
+
+while getopts "w:" opt; do
+	case "$opt" in
+		w) workstation="${OPTARG}"
+			;;
+	esac
+done
+shift $((OPTIND-1))
+
+
 # directory of this script, i.e. root of the repository
 source_dir=$(cd "$(dirname "$0")" && pwd)
 overwrite=false
@@ -65,8 +79,13 @@ install_symlink gtk/gtkrc-2.0 ~/.gtkrc-2.0
 install_symlink gtk/settings.ini ~/.config/gtk-3.0/settings.ini
 
 # === i3 ===
-install_symlink i3/config ~/.config/i3/config
-install_symlink i3status/config ~/.config/i3status/config
+if [ "$workstation" == "nb" ]; then
+	install_symlink i3/config-nb ~/.config/i3/config
+	install_symlink i3status/config-nb ~/.config/i3status/config
+else
+	install_symlink i3/config ~/.config/i3/config
+	install_symlink i3status/config ~/.config/i3status/config
+fi
 
 # === keyboard layout ===
 $source_dir/bin/keyboard-layout neo2-numlvl3 2&> /dev/null

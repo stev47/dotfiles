@@ -12,13 +12,12 @@ general {
 }
 
 order += "ipv6"
-order += "disk /home/stev47"
+order += "disk /home/stev47/"
 #order += "run_watch DHCP"
 order += "run_watch VPN"
-#order += "wireless wlp2s0b1"
-order += "ethernet eth0"
-order += "ethernet eth1"
-#order += "battery 1"
+order += "wireless wlp2s0b1"
+order += "ethernet enp1s0"
+order += "battery 1"
 order += "load"
 order += "tztime local"
 
@@ -27,12 +26,8 @@ wireless wlp2s0b1 {
         format_down = "W: -"
 }
 
-ethernet eth0 {
-        format_up = "E0: %ip"
-        format_down = "E: -"
-}
-ethernet eth1 {
-        format_up = "E1: %ip"
+ethernet enp1s0 {
+        format_up = "E: %ip"
         format_down = "E: -"
 }
 
