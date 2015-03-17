@@ -1,2 +1,8 @@
 gtk-theme-name = "Clearlooks"
 gtk-font-name = "DejaVu Sans 8"
+
+style "gvimbgfix" {
+      bg[NORMAL] = "#202020" # this matches my gvim theme 'Normal' bg color.
+}
+widget "vim-main-window.*GtkForm" style "gvimbgfix"
+
