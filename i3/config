@@ -165,3 +165,7 @@ bindsym Mod1+c mode "resize"
 bar {
         status_command i3status
 }
+
+# autostart
+
+exec i3-sensible-terminal
