@@ -4,7 +4,7 @@ font pango:DejaVu Sans Mono 7
 
 workspace_layout tabbed
 
-new_window 1pixel
+new_window pixel1
 
 #set $NeoMod3 Mod5
 #set $NeoMod4 Mod3
@@ -165,3 +165,7 @@ bindsym Mod1+c mode "resize"
 bar {
         status_command i3status
 }
+
+# autostart
+
+exec i3-sensible-terminal
