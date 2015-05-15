@@ -22,6 +22,7 @@ floating_modifier Mod1
 
 # force floating by default
 for_window [class="Wine"] floating enable
+for_window [class="Vlc"] floating enable
 
 
 
