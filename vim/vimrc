@@ -101,7 +101,7 @@ set autoindent
 set smartindent
 set formatoptions="cq"
 set spelllang=""        " vim-markdown decides to switch it on if it's not empty
-set clipboard^=unnamed
+set clipboard^=unnamedplus
 set mouse=a
 
 "==========
