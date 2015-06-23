@@ -1,10 +1,10 @@
 #!/bin/sh
 
 # node binaries
-[ -d ~/.nodejs/modules/bin ] && export PATH=~/.nodejs/modules/bin:${PATH}
+[ -d ~/.nodejs/modules/bin ] && export PATH=$PATH:~/.nodejs/modules/bin
 # ruby gems
 ruby_version=`ruby --version | grep -Po "\d+\.\d+\.\d+"`
-[ -d ~/.gem/ruby/${ruby_version}/bin ] && export PATH=~/.gem/ruby/${ruby_version}/bin:${PATH}
+[ -d ~/.gem/ruby/${ruby_version}/bin ] && export PATH=$PATH:~/.gem/ruby/${ruby_version}/bin
 # personal binary path
 [ -d ~/bin ] && export PATH=~/bin:${PATH}
 
