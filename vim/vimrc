@@ -12,7 +12,6 @@ source ~/.vim/keymaps.vim
 
 " My Bundles
 
-Bundle 'sgeb/vim-matlab'
 
 
 Bundle 'LaTeX-Box-Team/LaTeX-Box'
@@ -249,6 +248,7 @@ if match(hostname(), '^stud') != -1
     autocmd InsertEnter * match TrailingWhitespace /\s\+\%#\@!$/
     autocmd InsertLeave * match TrailingWhitespace /\s\+$/
 
+    Bundle 'sgeb/vim-matlab'
     let g:mlint_path_to_mlint='/opt/matlab/bin/glnxa64/mlint'
 
 elseif match(hostname(), 'nb$') != -1
