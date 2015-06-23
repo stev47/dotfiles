@@ -220,7 +220,7 @@ if has("gui_running")
     set guioptions -=c " use console dialogs
     "set lines=999 columns=999
     if hostname() == "st-nb"
-        set guifont=Monospace\ 8
+        set guifont=Monospace\ 9
     endif
 else
 
