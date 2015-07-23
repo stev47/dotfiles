@@ -79,6 +79,9 @@ let g:markdown_enable_insert_mode_mappings = 0
 " Tabular plugin (aligning text)
 Bundle "godlygeek/tabular"
 
+" Julia
+Bundle "JuliaLang/julia-vim"
+
 
 filetype plugin indent on
 
