@@ -1,0 +1,19 @@
+#!/bin/bash
+#
+# Find current working directory of focused application in X
+#
+# ideas from
+# https://gist.github.com/viking/5851049
+
+
+# focused window id (not pid)
+ID=$(xdpyinfo | grep -Po '(?<=focus:  window )\w+')
+# focused window pid
+PIDTERM=$(xprop -id $ID | grep -Po '(?<=PID\(CARDINAL\) = )\w+')
+# bash child process pid
+PIDBASH=$(pstree -lp $PIDTERM | grep -Po '(?<=bash\()\w+')
+# working directory
+CWD=$(readlink /proc/$PIDBASH/cwd)
+
+echo "$CWD"
+

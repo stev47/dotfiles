@@ -27,7 +27,7 @@ for_window [class="Vlc"] floating enable
 
 
 # start a terminal
-bindsym Mod1+Return exec i3-sensible-terminal
+bindsym Mod1+Return exec "cd \\"`xcwd`\\" && i3-sensible-terminal"
 
 # kill focused window
 bindsym Mod1+Shift+x kill
