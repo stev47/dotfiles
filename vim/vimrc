@@ -58,7 +58,7 @@ set rtp+=~/.vim/snippets
 
 " web
 "Bundle "mutewinter/vim-css3-syntax"
-"Bundle "pangloss/vim-javascript"
+Bundle "pangloss/vim-javascript"
 Bundle "digitaltoad/vim-jade"
 
 " fugitive - git plugin
