@@ -1,14 +1,14 @@
 #!/bin/bash
 
-export HOST=stud18
-while getopts "h:" opt; do
+export HOST=stud30
+while getopts "h:v" opt; do
 	case "$opt" in
-		h)  export HOST=$OPTARG
-			;;
+		h) export HOST=$OPTARG;;
+		v) sshopt="-v"
 	esac
 done
 shift $((OPTIND-1))
 
 #ssh -CY -c "arcfour256,arcfour,blowfish-cbc" hilbsn@${HOST}.mathematik.uni-stuttgart.de
 
-ssh -CY hilbsn@${HOST}.mathematik.uni-stuttgart.de
+ssh -CY $sshopt hilbsn@${HOST}.mathematik.uni-stuttgart.de
