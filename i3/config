@@ -139,6 +139,13 @@ bindsym Mod1+Shift+c restart
 bindsym Mod1+Shift+l exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 
+set $passthrough "passthrough: Alt + Pause to quit"
+mode $passthrough {
+    bindsym Mod1+Pause mode "default"
+}
+bindsym Mod1+Pause mode $passthrough
+
+
 set $ctlmenu "control: [s]uspend, [r]eboot, [p]oweroff"
 mode $ctlmenu {
     bindsym s           exec "i3lock && systemctl suspend"; mode "default"
