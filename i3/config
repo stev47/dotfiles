@@ -157,6 +157,17 @@ mode $ctlmenu {
 }
 bindsym Mod1+Delete mode $ctlmenu
 
+set $kbdmenu "keyboard: [n]eo2-numlvl3, [d]e-nodeadkeys"
+mode $kbdmenu {
+    bindsym space  exec "keyboard-layout neo2-numlvl3"; mode "default"
+    bindsym n      exec "keyboard-layout neo2-numlvl3"; mode "default"
+    bindsym d      exec "keyboard-layout de-nodeadkeys"; mode "default"
+
+    bindsym Escape mode "default"
+    bindcode Mod3+52 mode "default"
+}
+bindsym Mod1+F9 mode $kbdmenu
+
 # resize window (you can also use the mouse for that)
 mode "resize" {
     # These bindings trigger as soon as you enter the resize mode
