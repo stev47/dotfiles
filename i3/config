@@ -30,7 +30,7 @@ for_window [class="Vlc"] floating enable
 bindsym Mod1+Return exec "cd \\"`xcwd`\\" && i3-sensible-terminal"
 
 
-bindsym Mod1+F12 exec "i3lock"
+bindsym Mod1+F12 exec "mylock"
 bindsym Mod1+F1 exec "killall -u `whoami`"
 
 # kill focused window
