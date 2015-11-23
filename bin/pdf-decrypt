@@ -1,0 +1,20 @@
+#!/bin/bash
+
+set -e
+
+if [ $# -eq 0 ]; then
+    echo -e "usage: $0 <input-pdf>"
+    exit 0;
+fi
+
+INFILE=$1
+OUTFILE=${INFILE%.*}-decrypted.pdf
+
+read -s -p "Password:" PW
+echo
+
+echo "Processing pdf ..."
+
+gs -q -dNOPAUSE -dBATCH -sDEVICE=pdfwrite -sOutputFile=$OUTFILE -sPDFPassword=$PW -c .setpdfwrite -f $INFILE
+
+echo "Output written to $OUTFILE"
