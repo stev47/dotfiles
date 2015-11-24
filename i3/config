@@ -148,7 +148,7 @@ bindsym Mod1+Pause mode $passthrough
 
 set $ctlmenu "control: [s]uspend, [r]eboot, [p]oweroff"
 mode $ctlmenu {
-    bindsym s           exec "i3lock && systemctl suspend"; mode "default"
+    bindsym s           exec "mylock && systemctl suspend"; mode "default"
     bindsym r           exec "systemctl reboot"
     bindsym p           exec "systemctl poweroff"
 
