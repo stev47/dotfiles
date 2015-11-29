@@ -44,7 +44,7 @@ echo "\\documentclass{article} \
 \\usepackage[pdftex]{color,graphicx,epsfig} \
 \\usepackage{pdfpages} \
 \\begin{document} \
-\\includepdf[${PAGES},${SIGNATURE},landscape,trim=${TRIMH}cm ${TRIMV}cm ${TRIMH}cm ${TRIMV}cm]{${BOOKLET_SOURCE}} \
+\\includepdf[${PAGES},${SIGNATURE},landscape,trim=${TRIMH}cm ${TRIMV}cm ${TRIMH}cm ${TRIMV}cm,clip=true]{${BOOKLET_SOURCE}} \
 \\end{document}" > "${COMPILE_PATH}/${BOOKLET_TARGET_NAME}.tex"
 
 #\\includepdf[${PAGES},${SIGNATURE},landscape,delta=0 2.5cm,pagetemplate=5]{${BOOKLET_SOURCE}} \
