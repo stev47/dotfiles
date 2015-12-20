@@ -1,6 +1,6 @@
 # my i3 config
 
-font pango:DejaVu Sans Mono 7
+font pango:DejaVu Sans Mono 7.5
 
 workspace_layout tabbed
 
@@ -26,13 +26,14 @@ for_window [class="Wine"] floating enable
 
 
 # start a terminal
-bindsym Mod1+Return exec i3-sensible-terminal
+bindsym Mod1+Return exec "cd \\"`xcwd`\\" && i3-sensible-terminal"
+
 
 # kill focused window
 bindsym Mod1+Shift+x kill
 
 # start dmenu (a program launcher)
-bindsym Mod1+a exec dmenu_run
+bindsym Mod1+a exec "dmenu_run -fn \\"DejaVu Sans Mono-7.5\\" -l 7"
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
@@ -133,29 +134,49 @@ bindsym Mod1+Shift+c restart
 # exit i3 (logs you out of your X session)
 bindsym Mod1+Shift+l exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
+
+set $ctlmenu "control: [l]ock, [k]illall, [s]uspend, [r]eboot, [p]oweroff"
+mode $ctlmenu {
+    bindsym s           exec "mylock && systemctl suspend"; mode "default"
+    bindsym r           exec "systemctl reboot"
+    bindsym p           exec "systemctl poweroff"
+    bindsym l           exec "mylock"; mode "default"
+    bindsym k           exec "killall -u `whoami`"; mode "default"
+
+    bindsym Escape mode "default"
+    bindcode Mod3+52 mode "default"
+}
+bindsym Mod1+Delete mode $ctlmenu
+
+set $pmenu "pause"
+mode $pmenu {
+    bindcode Mod1+127 mode "default"
+}
+bindcode Mod1+127 mode $pmenu
+
 # resize window (you can also use the mouse for that)
 mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
+    # These bindings trigger as soon as you enter the resize mode
 
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
-        bindsym $left       resize shrink width 10 px or 10 ppt
-        bindsym $down       resize grow height 10 px or 10 ppt
-        bindsym $up         resize shrink height 10 px or 10 ppt
-        bindsym $right      resize grow width 10 px or 10 ppt
+    # Pressing left will shrink the window’s width.
+    # Pressing right will grow the window’s width.
+    # Pressing up will shrink the window’s height.
+    # Pressing down will grow the window’s height.
+    bindsym $left       resize shrink width 10 px or 10 ppt
+    bindsym $down       resize grow height 10 px or 10 ppt
+    bindsym $up         resize shrink height 10 px or 10 ppt
+    bindsym $right      resize grow width 10 px or 10 ppt
 
-        # same bindings, but for the arrow keys
-        #bindsym Left        resize shrink width 10 px or 10 ppt
-        #bindsym Down        resize grow height 10 px or 10 ppt
-        #bindsym Up          resize shrink height 10 px or 10 ppt
-        #bindsym Right       resize grow width 10 px or 10 ppt
+    # same bindings, but for the arrow keys
+    #bindsym Left        resize shrink width 10 px or 10 ppt
+    #bindsym Down        resize grow height 10 px or 10 ppt
+    #bindsym Up          resize shrink height 10 px or 10 ppt
+    #bindsym Right       resize grow width 10 px or 10 ppt
 
-        # back to normal: Enter or Escape
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-        bindcode Mod3+52 mode "default"
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+    bindcode Mod3+52 mode "default"
 }
 
 bindsym Mod1+c mode "resize"
@@ -163,7 +184,7 @@ bindsym Mod1+c mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        status_command i3status
+    status_command i3status
 }
 
 # autostart
