@@ -42,6 +42,7 @@ done
 # === Vim ===
 install_symlink vim ~/.vim
 install_symlink vim/vimrc ~/.vimrc
+install_symlink vim ~/.config/nvim
 if [ ! -e $source_dir/vim/bundle/vundle ]; then
 	git clone https://github.com/gmarik/vundle.git $source_dir/vim/bundle/vundle
 	vim -c "BundleInstall" -c ":qa"
