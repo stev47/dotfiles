@@ -4,13 +4,8 @@ font pango:DejaVu Sans Mono 8
 
 workspace_layout tabbed
 
-new_window pixel2
+new_window pixel 2
 
-#set $NeoMod3 Mod5
-#set $NeoMod4 Mod3
-
-# use these keys for focus, movement, and resize directions when reaching for
-# the arrows is not convenient
 set $up t
 set $down r
 set $left n
@@ -19,20 +14,13 @@ set $right d
 # use Mouse+Mod1 to drag floating windows to their wanted position
 floating_modifier Mod1
 
-
 # force floating by default
 for_window [class="Wine"] floating enable
-for_window [class="Vlc"] floating enable
 for_window [class="mpv"] floating enable
-
-
 
 # start a terminal
 bindsym Mod1+Return exec "cd \\"`xcwd`\\" && i3-sensible-terminal"
 
-
-bindsym Mod1+F12 exec "mylock"
-bindsym Mod1+F1 exec "killall -u `whoami`"
 
 # kill focused window
 bindsym Mod1+Shift+x kill
@@ -50,28 +38,14 @@ bindsym Mod1+$down focus down
 bindsym Mod1+$up focus up
 bindsym Mod1+$right focus right
 
-# alternatively, you can use the cursor keys:
-#bindsym Mod1+Left focus left
-#bindsym Mod1+Down focus down
-#bindsym Mod1+Up focus up
-#bindsym Mod1+Right focus right
-
 # move focused window
 bindsym Mod1+Shift+$left move left
 bindsym Mod1+Shift+$down move down
 bindsym Mod1+Shift+$up move up
 bindsym Mod1+Shift+$right move right
 
-# alternatively, you can use the cursor keys:
-#bindsym Mod1+Shift+Left move left
-#bindsym Mod1+Shift+Down move down
-#bindsym Mod1+Shift+Up move up
-#bindsym Mod1+Shift+Right move right
-
-# split in horizontal orientation
+# split
 bindsym Mod1+f split h
-
-# split in vertical orientation
 bindsym Mod1+g split v
 
 # enter fullscreen mode for the focused container
@@ -84,27 +58,24 @@ bindsym Mod1+l layout toggle split
 
 # toggle tiling / floating
 bindsym Mod1+Shift+space floating toggle
-
 # change focus between tiling / floating windows
 bindsym Mod1+space focus mode_toggle
 
 # focus the parent container
 bindsym Mod1+u focus parent
-
 # focus the child container
-#bindsym Mod1+a focus child
+bindsym Mod1+udiaeresis focus child
 
 # move the currently focused window to the scratchpad
 bindsym Mod1+Shift+minus move scratchpad
-
 # Show the next scratchpad window or hide the focused scratchpad window.
 # If there are multiple scratchpad windows, this command cycles through them.
 bindsym Mod1+minus scratchpad show
 
+# switch to workspace
 bindsym Mod1+1 workspace 1
 bindsym Mod1+2 workspace 2
 bindsym Mod1+3 workspace 3
-# switch to workspace
 bindcode Mod1+Mod3+58 workspace 1
 bindcode Mod1+Mod3+59 workspace 2
 bindcode Mod1+Mod3+60 workspace 3
@@ -120,7 +91,6 @@ bindcode Mod1+Mod3+65 workspace 10
 bindsym Mod1+Shift+1 move container to workspace 1
 bindsym Mod1+Shift+2 move container to workspace 2
 bindsym Mod1+Shift+3 move container to workspace 3
-
 bindcode Mod1+Shift+Mod3+58 move container to workspace 1
 bindcode Mod1+Shift+Mod3+59 move container to workspace 2
 bindcode Mod1+Shift+Mod3+60 move container to workspace 3
@@ -139,54 +109,12 @@ bindsym Mod1+Shift+c restart
 # exit i3 (logs you out of your X session)
 bindsym Mod1+Shift+l exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
-
-set $passthrough "passthrough: Alt + Pause to quit"
-mode $passthrough {
-    bindsym Mod1+Pause mode "default"
-}
-bindsym Mod1+Pause mode $passthrough
-
-
-set $ctlmenu "control: [s]uspend, [r]eboot, [p]oweroff"
-mode $ctlmenu {
-    bindsym s           exec "mylock && systemctl suspend"; mode "default"
-    bindsym r           exec "systemctl reboot"
-    bindsym p           exec "systemctl poweroff"
-
-    bindsym Escape mode "default"
-    bindcode Mod3+52 mode "default"
-}
-bindsym Mod1+Delete mode $ctlmenu
-
-set $kbdmenu "keyboard: [n]eo2-numlvl3, [d]e-nodeadkeys"
-mode $kbdmenu {
-    bindsym space  exec "keyboard-layout neo2-numlvl3"; mode "default"
-    bindsym n      exec "keyboard-layout neo2-numlvl3"; mode "default"
-    bindsym d      exec "keyboard-layout de-nodeadkeys"; mode "default"
-
-    bindsym Escape mode "default"
-    bindcode Mod3+52 mode "default"
-}
-bindsym Mod1+F9 mode $kbdmenu
-
 # resize window (you can also use the mouse for that)
 mode "resize" {
-    # These bindings trigger as soon as you enter the resize mode
-
-    # Pressing left will shrink the window’s width.
-    # Pressing right will grow the window’s width.
-    # Pressing up will shrink the window’s height.
-    # Pressing down will grow the window’s height.
     bindsym $left       resize shrink width 10 px or 10 ppt
     bindsym $down       resize grow height 10 px or 10 ppt
     bindsym $up         resize shrink height 10 px or 10 ppt
     bindsym $right      resize grow width 10 px or 10 ppt
-
-    # same bindings, but for the arrow keys
-    #bindsym Left        resize shrink width 10 px or 10 ppt
-    #bindsym Down        resize grow height 10 px or 10 ppt
-    #bindsym Up          resize shrink height 10 px or 10 ppt
-    #bindsym Right       resize grow width 10 px or 10 ppt
 
     # back to normal: Enter or Escape
     bindsym Return mode "default"
@@ -201,6 +129,56 @@ bindsym Mod1+c mode "resize"
 bar {
     status_command i3status
 }
+
+
+# Control menus
+
+
+set $passthrough "passthrough: Alt + Pause to quit"
+mode $passthrough {
+    bindsym Mod1+Pause mode "default"
+}
+bindsym Mod1+Pause mode $passthrough
+
+
+set $sysmenu "system: [s]uspend, [r]eboot, [p]oweroff, [l]ock, [k]illall"
+mode $sysmenu {
+    bindsym s           exec "mylock && systemctl suspend"; mode "default"
+    bindsym r           exec "systemctl reboot"; mode "default"
+    bindsym p           exec "systemctl poweroff"; mode "default"
+    bindsym l           exec "mylock"; mode "default"
+    bindsym k           exec "killall -u `whoami`"; mode "default"
+
+    bindsym Escape mode "default"
+    bindcode Mod3+52 mode "default"
+}
+#bindsym Mod1+Delete mode $sysmenu
+
+
+set $kbdmenu "keyboard: [n]eo2-numlvl3, [d]e-nodeadkeys"
+mode $kbdmenu {
+    bindsym space  exec "keyboard-layout neo2-numlvl3"; mode "default"
+    bindsym n      exec "keyboard-layout neo2-numlvl3"; mode "default"
+    bindsym d      exec "keyboard-layout de-nodeadkeys"; mode "default"
+
+    bindsym Escape mode "default"
+    bindcode Mod3+52 mode "default"
+}
+bindsym Mod1+F9 mode $kbdmenu
+
+
+set $ctlmenu "control: [s]ystem, [k]eyboard"
+mode $ctlmenu {
+    bindsym s           mode $sysmenu
+    bindsym k           mode $kbdmenu
+
+    bindsym Escape mode "default"
+    bindcode Mod3+52 mode "default"
+    bindcode Mod1+108 mode "default"
+}
+bindsym Mod1+Delete mode $ctlmenu
+bindcode Mod1+108 mode $ctlmenu
+
 
 # autostart
 
