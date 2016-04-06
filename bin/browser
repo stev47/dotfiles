@@ -4,7 +4,7 @@
 if [ -x "/usr/bin/chromium" ]; then
 
     # Chromium user flags
-    export CHROMIUM_USER_FLAGS="--disk-cache-dir=~/.cache --no-referrers"
+    export CHROMIUM_USER_FLAGS="--disk-cache-dir=$HOME/.cache --no-referrers"
 
     chromium
 
