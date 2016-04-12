@@ -152,20 +152,17 @@ mode $sysmenu {
     bindsym Escape mode "default"
     bindcode Mod3+52 mode "default"
 }
-#bindsym Mod1+Delete mode $sysmenu
 
-
-set $kbdmenu "keyboard: [n]eo2-numlvl3, [d]e-nodeadkeys"
+set $kbdmenu "keyboard: [F1]neo2-numlvl3, [F2]de-nodeadkeys"
 mode $kbdmenu {
     bindsym space  exec "keyboard-layout neo2-numlvl3"; mode "default"
-    bindsym n      exec "keyboard-layout neo2-numlvl3"; mode "default"
-    bindsym d      exec "keyboard-layout de-nodeadkeys"; mode "default"
+    bindsym F1      exec "keyboard-layout neo2-numlvl3"; mode "default"
+    bindsym F2      exec "keyboard-layout de-nodeadkeys"; mode "default"
 
     bindsym Escape mode "default"
     bindcode Mod3+52 mode "default"
 }
-bindsym Mod1+F9 mode $kbdmenu
-
+bindsym Mod1+Insert mode $kbdmenu
 
 set $ctlmenu "control: [s]ystem, [k]eyboard"
 mode $ctlmenu {
@@ -177,7 +174,6 @@ mode $ctlmenu {
     bindcode Mod1+108 mode "default"
 }
 bindsym Mod1+Delete mode $ctlmenu
-bindcode Mod1+108 mode $ctlmenu
 
 
 # autostart
