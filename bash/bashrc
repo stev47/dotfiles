@@ -8,6 +8,7 @@ shopt -s histappend
 HISTSIZE=10000
 HISTFILESIZE=10000
 
+# enables ctrl+d logout
 set +o ignoreeof
 
 # my colored bash-prompt
