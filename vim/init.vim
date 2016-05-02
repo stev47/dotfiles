@@ -1,19 +1,21 @@
-set nocompatible               " be iMproved
-filetype off                   " required!
+set nocompatible
+filetype off
 
 set rtp+=~/.vim/bundle/vundle
 call vundle#rc()
-
 Bundle 'gmarik/vundle'
 
-
+" keyboard-layout remapping
 source ~/.vim/keymaps.vim
+
+" local directory config
+set exrc
+set secure
 
 
 " My Bundles
 
-
-
+" LaTeX-Box
 Bundle 'LaTeX-Box-Team/LaTeX-Box'
 let g:LatexBox_no_mappings = 1
 let g:LatexBox_latexmk_async = 1
@@ -27,20 +29,17 @@ let g:tex_flavor = 'latex'
 let g:tex_nospell = 1
 let g:tex_no_error = 1
 
-"Bundle 'flazz/vim-colorschemes'
-"Bundle "Lokaltog/vim-easymotion"
 
-" Highlight CSS Colors, like #FF00000
-"Bundle "stev47/vim-css-color"
-"let g:cssColorVimDoNotMessMyUpdatetime = 1
-
-" Snipmate
-"Bundle "MarcWeber/vim-addon-mw-utils"
+" lib, needed?
 Bundle "tomtom/tlib_vim"
 
-" Autodetect indent style
+" autodetect indent style
 Bundle "tpope/vim-sleuth"
 
+
+" ultisnips, snippets
+Bundle "MarcWeber/ultisnips"
+set rtp+=~/.vim/snippets
 let g:UltiSnips = {}
 let g:UltiSnips.ExpandTrigger = "<Tab>"
 let g:UltiSnips.ListSnippets = "<C-Tab>"
@@ -48,22 +47,19 @@ let g:UltiSnips.JumpForwardTrigger = "¿"
 let g:UltiSnips.JumpBackwardTrigger = "¡"
 let g:UltiSnips.EditSplit = 'vsplit'
 
-Bundle "MarcWeber/ultisnips"
-set rtp+=~/.vim/snippets
-
-
-
-"Bundle "Lokaltog/powerline"
-"set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
 
 " web
+
 "Bundle "mutewinter/vim-css3-syntax"
 Bundle "pangloss/vim-javascript"
 Bundle "digitaltoad/vim-jade"
+" highlight HTML/CSS colors like #FF00000
+"Bundle "stev47/vim-css-color"
+"let g:cssColorVimDoNotMessMyUpdatetime = 1
+
 
 " fugitive - git plugin
 Bundle "tpope/vim-fugitive"
-
 nnoremap <leader>gw :Gwrite<CR>
 nnoremap <leader>gc :Gcommit -v -q<CR>
 nnoremap <leader>gt :Gcommit -v -q %:p<CR>
@@ -112,8 +108,8 @@ set mouse=a
 "==========
 
 augroup ProjectSetup
-	" force tabs in Makefiles
-	autocmd FileType make set noexpandtab shiftwidth=4 softtabstop=4
+    " force tabs in Makefiles
+    autocmd FileType make set noexpandtab shiftwidth=4 softtabstop=4
     " indentation rules for FFmpeg: 4 spaces, no tabs
     au BufRead,BufEnter /home/stev47/test/ffmpeg/* set expandtab shiftwidth=4 softtabstop=4 cindent
     au BufRead,BufEnter /home/stev47/uni/ana3/* set expandtab shiftwidth=2 softtabstop=2 cindent
@@ -141,6 +137,8 @@ set noswapfile
 
 
 colorscheme mustang
+set cursorline
+set colorcolumn=110
 
 function! LatexSetViewer()
     "let g:LatexBox_viewer = "evince_vim_synctex " . v:servername
