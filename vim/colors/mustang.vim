@@ -8,7 +8,7 @@ endif
 
 let colors_name = "mustang"
 
-hi CursorLine           guibg=#232323 ctermbg=236
+hi CursorLine           guibg=#232323 ctermbg=235 cterm=none
 hi CursorColumn         guibg=#2d2d2d ctermbg=236
 hi ColorColumn          guibg=#2d2d2d ctermbg=236
 hi MatchParen           guifg=#d0ffc0 guibg=#2f2f2f                          gui=bold ctermfg=157 ctermbg=237 cterm=bold

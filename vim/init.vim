@@ -96,29 +96,26 @@ set expandtab
 "set hlsearch
 set number
 syntax on
-set autoindent
 set smartindent
 set formatoptions="cq"
 set spelllang=""        " vim-markdown decides to switch it on if it's not empty
 set clipboard^=unnamedplus
 set mouse=a
 
-"==========
-" Project Setup
-"==========
-
-augroup ProjectSetup
-    " force tabs in Makefiles
-    autocmd FileType make set noexpandtab shiftwidth=4 softtabstop=4
-    " indentation rules for FFmpeg: 4 spaces, no tabs
-    au BufRead,BufEnter /home/stev47/test/ffmpeg/* set expandtab shiftwidth=4 softtabstop=4 cindent
-    au BufRead,BufEnter /home/stev47/uni/ana3/* set expandtab shiftwidth=2 softtabstop=2 cindent
-augroup END
-
 
 "=============
 " My stuff
 "==============
+
+" use hidden buffers
+set hidden
+
+
+" i3-like window navigation
+noremap <S-n> <C-W>h
+noremap <S-r> <C-W>j
+noremap <S-t> <C-W>k
+noremap <S-d> <C-W>l
 
 
 
@@ -163,17 +160,6 @@ nmap <Leader>ls :silent call LatexForwardSearch()<Return>
 highlight TrailingWhitespace guibg=red ctermbg=red
 match TrailingWhitespace /\s\+$/
 
-
-" typo correction mappings
-"--------------------------
-
-" When I want to go left and Mod3 is still active.
-"imap ∫ <Left>
-
-" Save with Control s (I can't get myself used to this, not sure if it is
-" needed)
-nmap <C-s> :w<Return>
-imap <C-s> <Esc>:w<Return>
 
 " Movements with Neo2 keyboard layout
 map <Home> ^
