@@ -7,13 +7,14 @@
 #       somehow non-reproducable?
 
 set -e
+set -x
 
 
 USER="hilbsn"
-SSHCS="~/.ssh/control:%h:%p:%r"
-# needs to be without quotes or else `readlink -f` fails?
-LOCALVNCPW=~/.vnc/stud-vnc-passwd
-# needs to be with quotes to prevent local tilde expansion
+mkdir -p "$HOME/scratch/.ssh"
+SSHCS="$HOME/scratch/.ssh/control:%h:%p:%r"
+LOCALVNCPW="$HOME/.vnc/stud-vnc-passwd"
+# tilde expansion is done on the remote
 REMOTEVNCPW="~/.vnc/stud-vnc-passwd"
 
 HOST=${USER}@${1}.mathematik.uni-stuttgart.de
@@ -34,6 +35,15 @@ freedisp () {
   echo :$NUM
 }
 
+cleanup () {
+  echo "cleaning up ..."
+  ssh -S $SSHCS $HOST "killall -u $USER Xvfb x11vnc || true"
+  ssh -S $SSHCS -O exit $HOST
+
+  exit 0
+}
+
+
 # generate password token (vnc passwd truncates to 8 chars)
 PW=`cat /dev/urandom | base64 | fold -w 8 | head -n 1`
 # use local screen size for framebuffer
@@ -41,6 +51,8 @@ DISPLAYSIZE=`xdpyinfo | grep -Po '(?<=dimensions:    )\w+'`
 
 # connect and setup ssh master control socket
 ssh -C -M -S $SSHCS -fN $HOST
+
+trap 'cleanup' EXIT
 
 LOCALPORT=$(freeport)
 REMOTEPORT=`ssh -S $SSHCS $HOST "$(typeset -f freeport); freeport"`
@@ -51,11 +63,10 @@ ssh -S $SSHCS -L $LOCALPORT:localhost:$REMOTEPORT -N $HOST &
 sleep 0.2
 
 echo "starting remote Xvfb ..."
-ssh -S $SSHCS $HOST "Xvfb $VNCDISPLAY -nolisten tcp -screen 0 ${DISPLAYSIZE}x16" &
+ssh -S $SSHCS $HOST "Xvfb $VNCDISPLAY -nolisten tcp -screen 0 ${DISPLAYSIZE}x24 +extension RANDR" &
 
 echo "preparing password file ..."
-# stupid path expansion needed for local and remote
-LOCALVNCPW=$(readlink -f $LOCALVNCPW)
+# remote path expansion needed
 REMOTEVNCPW=$(ssh -S $SSHCS $HOST "readlink -f $REMOTEVNCPW && true")
 echo -n $(ssh -S $SSHCS $HOST "x11vnc -storepasswd $PW $REMOTEVNCPW && cat $REMOTEVNCPW") > $LOCALVNCPW
 
@@ -68,8 +79,3 @@ ssh -S $SSHCS $HOST "DISPLAY=$VNCDISPLAY i3" &
 
 echo "starting vncviewer ..."
 vncviewer -passwd $LOCALVNCPW localhost:$LOCALPORT
-
-echo "cleaning up ..."
-ssh -S $SSHCS $HOST "killall -u $USER Xvfb x11vnc || true"
-ssh -S $SSHCS -O exit $HOST
-
