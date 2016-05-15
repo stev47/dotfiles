@@ -6,7 +6,7 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 
 " keyboard-layout remapping
-source ~/.vim/keymaps.vim
+"source ~/.vim/keymaps.vim
 
 " local directory config
 set exrc
@@ -93,7 +93,6 @@ au BufRead,BufNewFile *.vala,*.vapi setfiletype vala
 set tabstop=8
 set shiftwidth=4
 set expandtab
-"set hlsearch
 set number
 syntax on
 set smartindent
@@ -101,6 +100,7 @@ set formatoptions="cq"
 set spelllang=""        " vim-markdown decides to switch it on if it's not empty
 set clipboard^=unnamedplus
 set mouse=a
+set virtualedit=all
 
 
 "=============
@@ -110,12 +110,59 @@ set mouse=a
 " use hidden buffers
 set hidden
 
+" expand to directory of current file
+cnoremap %% <C-r>=fnameescape(expand('%:h')).'/'<CR>
+nmap <leader>e :e %%
+nmap <leader>v :tabedit $MYVIMRC<CR>
 
-" i3-like window navigation
-noremap <S-n> <C-W>h
-noremap <S-r> <C-W>j
-noremap <S-t> <C-W>k
-noremap <S-d> <C-W>l
+" 1st row
+noremap i y
+noremap I y$
+noremap a d
+noremap A D
+noremap e p
+noremap E P
+"
+noremap h b
+noremap H B
+noremap g w
+noremap G W
+noremap f e
+noremap F E
+
+" 2nd row
+noremap v i
+noremap V I
+noremap l a
+noremap L A
+noremap c c
+noremap C C
+noremap w o
+noremap W O
+" navigation: i3-like
+noremap n h
+noremap r j
+noremap t k
+noremap d l
+noremap <S-n> <C-w>h
+noremap <S-r> <C-w>j
+noremap <S-t> <C-w>k
+noremap <S-d> <C-w>l
+
+
+" 3rd row
+noremap ä r
+noremap Ä R
+noremap <nowait> p v
+noremap <nowait> P V
+noremap <nowait> <C-p> <C-v>
+"
+noremap b t
+noremap B T
+noremap m f
+noremap M F
+
+
 
 
 
@@ -162,10 +209,8 @@ match TrailingWhitespace /\s\+$/
 
 
 " Movements with Neo2 keyboard layout
-map <Home> ^
-map <End> $
-nmap <PageUp> 10<C-Y>
-nmap <PageDown> 10<C-E>
+nmap <PageUp> <C-U>
+nmap <PageDown> <C-D>
 " lookahead/lookbefore when in insert mode
 inoremap <PageUp> <Esc>m"10<C-Y>`"a
 inoremap <PageDown> <Esc>m"10<C-E>`"a
@@ -192,7 +237,6 @@ map <S-ScrollWheelDown> 10zl
 " Habit-breaking
 map pt <Nop>
 map <C-w> <Nop>
-map d <Nop>
 noremap <C-q> <Nop>
 noremap q <Nop>
 noremap Q <Nop>
