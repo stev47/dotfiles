@@ -12,6 +12,8 @@ Bundle 'gmarik/vundle'
 set exrc
 set secure
 
+" disable welcome screen
+set shortmess+=I
 
 " My Bundles
 
