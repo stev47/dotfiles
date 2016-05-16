@@ -1,12 +1,15 @@
 set nocompatible
 filetype off
 
-set rtp+=~/.vim/bundle/vundle
-call vundle#rc()
-Bundle 'gmarik/vundle'
-
 " keyboard-layout remapping
 "source ~/.vim/keymaps.vim
+
+" vundle for vim plugins
+set rtp+=~/.vim/bundle/vundle
+call vundle#begin()
+
+
+Plugin 'gmarik/vundle'
 
 " local directory config
 set exrc
@@ -15,10 +18,10 @@ set secure
 " disable welcome screen
 set shortmess+=I
 
-" My Bundles
+" My Plugins
 
 " LaTeX-Box
-Bundle 'LaTeX-Box-Team/LaTeX-Box'
+Plugin 'LaTeX-Box-Team/LaTeX-Box'
 let g:LatexBox_no_mappings = 1
 let g:LatexBox_latexmk_async = 1
 let g:LatexBox_quickfix = 2
@@ -33,10 +36,10 @@ let g:tex_no_error = 1
 
 
 " lib, needed?
-Bundle "tomtom/tlib_vim"
+Plugin 'tomtom/tlib_vim'
 
 " autodetect indent style
-Bundle "tpope/vim-sleuth"
+Plugin 'tpope/vim-sleuth'
 
 
 " ultisnips, snippets
@@ -52,16 +55,16 @@ let g:UltiSnips.EditSplit = 'vsplit'
 
 " web
 
-"Bundle "mutewinter/vim-css3-syntax"
-Bundle "pangloss/vim-javascript"
-Bundle "digitaltoad/vim-jade"
+"Plugin 'mutewinter/vim-css3-syntax'
+Plugin 'pangloss/vim-javascript'
+Plugin 'digitaltoad/vim-jade'
 " highlight HTML/CSS colors like #FF00000
-"Bundle "stev47/vim-css-color"
+"Plugin 'stev47/vim-css-color'
 "let g:cssColorVimDoNotMessMyUpdatetime = 1
 
 
 " fugitive - git plugin
-Bundle "tpope/vim-fugitive"
+Plugin 'tpope/vim-fugitive'
 nnoremap <leader>gw :Gwrite<CR>
 nnoremap <leader>gc :Gcommit -v -q<CR>
 nnoremap <leader>gt :Gcommit -v -q %:p<CR>
@@ -71,16 +74,18 @@ nnoremap <leader>gs :Gstatus<CR>
 
 
 " vim-markdown - with github flavored markdown
-Bundle "gabrielelana/vim-markdown"
+Plugin 'gabrielelana/vim-markdown'
 let g:markdown_enable_insert_mode_mappings = 0
 
 " Tabular plugin (aligning text)
-Bundle "godlygeek/tabular"
+Plugin 'godlygeek/tabular'
 
 " Julia
-Bundle "JuliaLang/julia-vim"
+Plugin 'JuliaLang/julia-vim'
 
 
+" vundle end
+call vundle#end()
 filetype plugin indent on
 
 
@@ -281,10 +286,6 @@ if match(hostname(), '^stud') != -1
     " in insert mode, do not highlight whitespace preceding the cursor
     autocmd InsertEnter * match TrailingWhitespace /\s\+\%#\@!$/
     autocmd InsertLeave * match TrailingWhitespace /\s\+$/
-
-    Bundle 'sgeb/vim-matlab'
-    let g:mlint_path_to_mlint='/opt/matlab/bin/glnxa64/mlint'
-
 elseif match(hostname(), 'nb$') != -1
 
     let g:loaded_matchparen = 0
