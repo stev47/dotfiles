@@ -122,6 +122,12 @@ cnoremap %% <C-r>=fnameescape(expand('%:h')).'/'<CR>
 nmap <leader>e :e %%
 nmap <leader>v :tabedit $MYVIMRC<CR>
 
+" habit-breaking
+nmap <Left> <nop>
+nmap <Right> <nop>
+nmap <Up> <nop>
+nmap <Down> <nop>
+
 " 1st row
 noremap i y
 noremap I y$
