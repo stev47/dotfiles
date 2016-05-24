@@ -129,12 +129,14 @@ nmap <Up> <nop>
 nmap <Down> <nop>
 
 " 1st row
-noremap i y
-noremap I y$
-noremap a d
-noremap A D
-noremap e p
-noremap E P
+noremap v i
+noremap V I
+noremap l a
+noremap L A
+noremap c c
+noremap C C
+noremap w o
+noremap W O
 "
 noremap h b
 noremap H B
@@ -144,14 +146,14 @@ noremap f e
 noremap F E
 
 " 2nd row
-noremap v i
-noremap V I
-noremap l a
-noremap L A
-noremap c c
-noremap C C
-noremap w o
-noremap W O
+noremap i y
+noremap I y$
+noremap a d
+noremap A D
+noremap e p
+noremap E P
+noremap o g
+noremap O G
 " navigation: i3-like
 noremap n h
 noremap r j
@@ -174,6 +176,8 @@ noremap b t
 noremap B T
 noremap m f
 noremap M F
+noremap , ;
+noremap – ,
 
 
 
