@@ -267,6 +267,7 @@ if has("gui_running")
     set guioptions -=m " hide menubar
     set guioptions -=r " hide scrollbar
     set guioptions -=c " use console dialogs
+    set guioptions -=L " hide left-hand scrollbar on vsplit
     "set lines=999 columns=999
     if hostname() == "st-nb"
         set guifont=Monospace\ 9
