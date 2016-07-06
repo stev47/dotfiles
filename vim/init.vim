@@ -109,6 +109,8 @@ set clipboard^=unnamedplus
 set mouse=a
 set virtualedit=all
 
+set nohlsearch
+
 
 "=============
 " My stuff
