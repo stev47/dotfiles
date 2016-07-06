@@ -1,6 +1,6 @@
 # my i3 config
 
-font pango:DejaVu Sans Mono 8
+font pango:DejaVu Sans Mono 10
 
 workspace_layout tabbed
 
@@ -152,6 +152,7 @@ mode $sysmenu {
     bindsym Escape mode "default"
     bindcode Mod3+52 mode "default"
 }
+bindsym Mod1+Delete mode $sysmenu
 
 set $kbdmenu "keyboard: [F1]neo2-numlvl3, [F2]de-nodeadkeys"
 mode $kbdmenu {
@@ -163,18 +164,6 @@ mode $kbdmenu {
     bindcode Mod3+52 mode "default"
 }
 bindsym Mod1+Insert mode $kbdmenu
-
-set $ctlmenu "control: [s]ystem, [k]eyboard"
-mode $ctlmenu {
-    bindsym s           mode $sysmenu
-    bindsym k           mode $kbdmenu
-
-    bindsym Escape mode "default"
-    bindcode Mod3+52 mode "default"
-    bindcode Mod1+108 mode "default"
-}
-bindsym Mod1+Delete mode $ctlmenu
-
 
 # autostart
 
