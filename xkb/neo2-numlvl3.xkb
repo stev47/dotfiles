@@ -1247,7 +1247,7 @@ xkb_symbols "pc+de(neo)+inet(evdev)" {
     };
     key <BKSL> {
         type= "ONE_LEVEL",
-        symbols[Group1]= [      VoidSymbol ]
+        symbols[Group1]= [       Control_R ]
     };
     key <AB01> {
         type= "EIGHT_LEVEL_SEMIALPHABETIC",
@@ -1304,7 +1304,7 @@ xkb_symbols "pc+de(neo)+inet(evdev)" {
     };
     key <CAPS> {
         type= "ONE_LEVEL",
-        symbols[Group1]= [      VoidSymbol ]
+        symbols[Group1]= [       Control_L ]
     };
     key <FK01> {
         type= "CTRL+ALT",
@@ -1581,6 +1581,8 @@ xkb_symbols "pc+de(neo)+inet(evdev)" {
     modifier_map Mod1 { <META> };
     modifier_map Mod4 { <SUPR> };
     modifier_map Mod4 { <HYPR> };
+    modifier_map Control { <CAPS> };
+    modifier_map Control { <BKSL> };
 };
 
 xkb_geometry "pc(pc104)" {
