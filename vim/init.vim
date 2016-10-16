@@ -156,6 +156,9 @@ noremap e p
 noremap E P
 noremap o g
 noremap O G
+"
+noremap s n
+noremap S N
 " navigation: i3-like
 noremap n h
 noremap r j
@@ -202,6 +205,7 @@ set noswapfile
 colorscheme mustang
 set cursorline
 set colorcolumn=110
+set textwidth=109
 
 function! LatexSetViewer()
     "let g:LatexBox_viewer = "evince_vim_synctex " . v:servername
