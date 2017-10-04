@@ -5,3 +5,4 @@ unset LC_ALL
 set +o ignoreeof
 
 alias ls="ls -lh --color --time-style=\"+%Y-%m-%d %H:%m\""
+alias rm="rm -I"
