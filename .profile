@@ -7,7 +7,8 @@ unset LC_ALL
 LC_MESSAGES="en_US.UTF-8"
 
 # fast cache
-[ -d /dev/shm ] && mkdir -p /dev/shm/hilbsn/cache
+[ -d /dev/shm ] && mkdir -p /dev/shm/${LOGNAME}/cache
+[ -f ~/.cache ] || ln -s /dev/shm/${LOGNAME}/cache ~/.cache
 
 # personal binaries
 PATH="~/bin:$PATH"
