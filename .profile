@@ -1,6 +1,3 @@
-# leave shell using ctrl+d
-set +o ignoreeof
-
 # language preferences
 unset LANGUAGE
 unset LC_ALL
