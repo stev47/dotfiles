@@ -13,4 +13,7 @@ LC_MESSAGES="en_US.UTF-8"
 # personal binaries
 PATH="~/bin:$PATH"
 
+# make $HOME to ~ shortening work for symlinked home dirs
+HOME="$(realpath $HOME)"
+
 [ "$BASH" ] && [ -f ~/.bashrc ] && source ~/.bashrc
