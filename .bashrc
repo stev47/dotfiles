@@ -4,5 +4,6 @@ unset LC_ALL
 # leave shell using ctrl+d
 set +o ignoreeof
 
-alias ls="ls -lh --color --time-style=\"+%Y-%m-%d %H:%m\""
-alias rm="rm -I"
+# aliases
+unalias rm cp mv
+alias ls="ls -lh --color --time-style=\"+%y-%m-%d %H:%m\""
