@@ -60,3 +60,9 @@ set sidescrolloff=5
 
 " use extended group matching (think %)
 runtime! macros/matchit.vim
+
+
+" filetype specific
+" =================
+
+autocmd FileType mail set textwidth=79
