@@ -18,5 +18,3 @@ PATH="~/bin:$PATH"
 
 # make $HOME to ~ shortening work for symlinked home dirs
 HOME="$(realpath $HOME)"
-
-[ "$BASH" ] && [ -f ~/.bashrc ] && source ~/.bashrc
