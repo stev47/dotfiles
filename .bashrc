@@ -5,5 +5,5 @@ unset LC_ALL
 set +o ignoreeof
 
 # aliases
-unalias rm cp mv
+unalias rm cp mv 2> /dev/null
 alias ls="ls -lh --color --time-style=\"+%y-%m-%d %H:%m\""
