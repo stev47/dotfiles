@@ -53,6 +53,8 @@ set autoindent
 " Tab in insert mode increases indent (respecting 'shiftwidth')
 set smarttab
 
+" clipboard, save only to register '+'
+set clipboard=unnamedplus
 
 
 
