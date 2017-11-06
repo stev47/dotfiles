@@ -10,6 +10,9 @@ runtime keymaps-layout.vim
 " syntax highlighting
 colorscheme frugal
 syntax on
+" trailing whitespace
+highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+$/
 " line numbering
 set number
 " show status bar even with only one window
