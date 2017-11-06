@@ -9,8 +9,8 @@ LC_MESSAGES="en_US.UTF-8"
 
 # local harddisk dir if ~/ is on afs mount
 if [ $(df -P -T ~/ | tail -1 | awk '{print $2}') == 'afs' ]; then
-  [ -d /usr/local/home ] && mkdir -p /usr/local/home/${LOGNAME}
-  [ -e ~/local ] || ln -s /usr/local/home/${LOGNAME} ~/local
+  [ -d /usr/local/home -a -w /usr/local/home ] && mkdir -p /usr/local/home/${LOGNAME}
+  [ -L ~/local -o -f ~/local ] || ln -s /usr/local/home/${LOGNAME} ~/local
 fi
 
 # personal binaries
