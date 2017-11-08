@@ -69,6 +69,16 @@ set sidescrolloff=5
 " use extended group matching (think %)
 runtime! macros/matchit.vim
 
+" expand to directory of current file
+cnoremap %% <C-r>=fnameescape(expand('%:h')).'/'<CR>
+
+" quick-edit
+nmap <leader>e :e %%
+nmap <leader>v :tabedit $MYVIMRC<CR>
+
+" fix <esc> not acting instantly on many occasions
+set ttimeoutlen=0
+
 
 " filetype specific
 " =================
