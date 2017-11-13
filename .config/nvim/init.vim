@@ -1,5 +1,16 @@
 set nocompatible
 
+call plug#begin()
+
+" sensible defaults (neovim has most of them)
+Plug 'tpope/vim-sensible'
+" latex stuff
+Plug 'lervag/vimtex'
+let g:vimtex_mappings_enabled=0
+
+call plug#end()
+
+
 " purely key position remapping (beware of keyboard layout changes)
 runtime keymaps-layout.vim
 
@@ -18,8 +29,6 @@ autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 " line numbering
 set number
-" show status bar even with only one window
-set laststatus=2
 
 
 " simplify and speed up
@@ -42,32 +51,17 @@ if has('mouse') | set mouse=a | endif
 set virtualedit=all
 " work with hidden buffers
 set hidden
-" show tab-completion option
-set wildmenu
 
 " indent stuff
 set expandtab
 set shiftwidth=2
-" keep indent of previous line
-set autoindent
-" Tab in insert mode increases indent (respecting 'shiftwidth')
-set smarttab
 
 " clipboard, save only to register '+'
 set clipboard=unnamedplus
 
 
-
-
 " staging
 " =======
-
-" autoscroll when cursor moves close to edge
-set scrolloff=2
-set sidescrolloff=5
-
-" use extended group matching (think %)
-runtime! macros/matchit.vim
 
 " expand to directory of current file
 cnoremap %% <C-r>=fnameescape(expand('%:h')).'/'<CR>
@@ -75,9 +69,6 @@ cnoremap %% <C-r>=fnameescape(expand('%:h')).'/'<CR>
 " quick-edit
 nmap <leader>e :e %%
 nmap <leader>v :tabedit $MYVIMRC<CR>
-
-" fix <esc> not acting instantly on many occasions
-set ttimeoutlen=0
 
 
 " filetype specific
