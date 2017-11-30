@@ -18,3 +18,13 @@ PATH="~/bin:$PATH"
 
 # make $HOME to ~ shortening work for symlinked home dirs
 HOME="$(realpath $HOME)"
+
+# gpg-agent
+if ! [ -f ~/.gnupg/gpg-agent.env ] || ! gpg-agent 2> /dev/null; then
+  killall gpg-agent 2> /dev/null
+  gpg-agent --daemon \
+            --write-env-file ~/.gnupg/gpg-agent.env > /dev/null
+  source ~/.gnupg/gpg-agent.env
+  export GPG_AGENT_INFO
+  export GPG_TTY=$(tty)
+fi
