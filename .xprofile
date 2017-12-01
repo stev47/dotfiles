@@ -1,0 +1,12 @@
+# disable bell
+xset -b
+# disable screensaver
+xset -dpms s off
+
+# keyboard layout
+setxkbmap de neo -option
+xkbcomp -w 0 ~/.config/xkb/neo2-numlvl3.xkb $DISPLAY
+
+# fix weird artifacts on gnome-terminal with nvidia drivers
+export CLUTTER_PAINT=disable-clipped-redraws:disable-culling
+export __GL_SHADER_DISK_CACHE=0
