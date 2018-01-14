@@ -6,7 +6,25 @@ call plug#begin()
 Plug 'tpope/vim-sensible'
 " latex stuff
 Plug 'lervag/vimtex'
-let g:vimtex_mappings_enabled=0
+"let g:vimtex_mappings_enabled=1
+let g:vimtex_compiler_latexmk = {
+  \ 'backend' : 'process',
+  \ 'background' : 1,
+  \ 'build_dir' : '',
+  \ 'callback' : 1,
+  \ 'continuous' : 1,
+  \ 'executable' : 'latexmk',
+  \ 'options' : [
+  \   '-lualatex',
+  \   '-verbose',
+  \   '-file-line-error',
+  \   '-synctex=1',
+  \   '-interaction=nonstopmode',
+  \ ],
+  \}
+
+"Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+
 
 call plug#end()
 
