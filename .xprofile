@@ -2,6 +2,8 @@
 xset -b
 # disable screensaver
 xset -dpms s off
+# background
+xsetroot -solid "#182F06"
 
 # keyboard layout
 setxkbmap de neo -option
