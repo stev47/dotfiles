@@ -26,9 +26,16 @@ let g:vimtex_compiler_latexmk = {
 "Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 
 Plug 'JuliaEditorSupport/julia-vim'
+Plug 'tpope/vim-fugitive'
 
 call plug#end()
 
+
+" fugitive is bad behaving regarding mappings
+augroup RemoveFugitiveMappings
+  autocmd BufEnter * silent! noremap <buffer> r <down>
+  autocmd BufEnter * silent! noremap <buffer> R <c-w><down>
+augroup END
 
 " purely key position remapping (beware of keyboard layout changes)
 runtime keymaps-layout.vim
