@@ -25,6 +25,7 @@ let g:vimtex_compiler_latexmk = {
 
 "Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 
+Plug 'JuliaEditorSupport/julia-vim'
 
 call plug#end()
 
