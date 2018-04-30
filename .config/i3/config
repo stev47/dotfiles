@@ -154,11 +154,12 @@ mode "resize" {
 
 bindsym $mod+c mode "resize"
 
-set $mode_system "System: [o] poweroff, [r] reboot, [x] logout, [F10] en, [F11] de, [F12] neo2-numlvl3"
+set $mode_system "System: [o] poweroff, [r] reboot, [s] suspend, [x] logout, [F10] en, [F11] de, [F12] neo2-numlvl3"
 
 mode $mode_system {
   bindsym o exec "poweroff"
   bindsym r exec "reboot"
+  bindsym s exec "systemctl suspend"
   bindsym x exec "i3-msg exit"
   bindsym F10 exec "setxkbmap en" mode "default"
   bindsym F11 exec "setxkbmap de" mode "default"
