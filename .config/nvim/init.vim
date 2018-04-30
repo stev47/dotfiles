@@ -85,6 +85,10 @@ set shiftwidth=2
 " clipboard, save only to register '+'
 set clipboard=unnamedplus
 
+" check for file modifications in time
+set autoread
+autocmd FocusGained,BufEnter * :silent! checktime
+
 
 " staging
 " =======
