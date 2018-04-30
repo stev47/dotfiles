@@ -23,7 +23,7 @@ export TERMINAL="sakura"
 export EDITOR="nvim"
 
 # gpg-agent
-if ! [ -f ~/.gnupg/gpg-agent.env ] || ! gpg-agent 2> /dev/null; then
+if ! [ -f ~/.gnupg/gpg-agent.env ] && ! gpg-agent 2> /dev/null; then
   killall gpg-agent 2> /dev/null
   gpg-agent --daemon \
             --write-env-file ~/.gnupg/gpg-agent.env > /dev/null
