@@ -161,7 +161,7 @@ mode $mode_system {
   bindsym r exec "reboot"
   bindsym s exec "systemctl suspend"
   bindsym x exec "i3-msg exit"
-  bindsym F10 exec "setxkbmap en" mode "default"
+  bindsym F10 exec "setxkbmap us" mode "default"
   bindsym F11 exec "setxkbmap de" mode "default"
   bindsym F12 exec "xkbcomp -w 0 ~/.config/xkb/neo2-numlvl3.xkb $DISPLAY" mode "default"
 
