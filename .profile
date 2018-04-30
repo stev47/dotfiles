@@ -14,10 +14,10 @@ if [ $(df -P -T ~/ | tail -1 | awk '{print $2}') == 'afs' ]; then
 fi
 
 # personal binaries
-PATH="~/bin:$PATH"
+export PATH="~/bin:$PATH"
 
 # make $HOME to ~ shortening work for symlinked home dirs
-HOME="$(realpath $HOME)"
+export HOME="$(realpath $HOME)"
 
 export TERMINAL="sakura"
 export EDITOR="nvim"
