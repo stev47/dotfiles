@@ -18,3 +18,5 @@ autocmd FileType tex unmap <buffer> ic
 autocmd FileType tex unmap <buffer> id
 autocmd FileType tex unmap <buffer> ie
 silent! unmap i%
+autocmd FileType julia silent! unmap <buffer> aj
+autocmd FileType julia silent! unmap <buffer> ij
