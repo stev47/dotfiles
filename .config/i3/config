@@ -177,3 +177,5 @@ bindsym $mod+Delete mode $mode_system
 bar {
         status_command i3status
 }
+
+for_window [class="mpv"] floating enable
