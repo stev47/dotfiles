@@ -1,0 +1,6 @@
+#!/bin/bash
+
+export EDITOR='nvim -d'
+export DIFFPROG="sudoedit"
+
+/bin/pacdiff $@
