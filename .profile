@@ -31,3 +31,5 @@ if ! [ -f ~/.gnupg/gpg-agent.env ] && ! gpg-agent 2> /dev/null; then
   export GPG_AGENT_INFO
   export GPG_TTY=$(tty)
 fi
+
+export MAKEFLAGS="-j$(nproc)"
