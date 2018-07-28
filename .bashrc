@@ -19,6 +19,7 @@ unalias rm cp mv 2> /dev/null
 alias ls="ls -lh --color --time-style=\"+%y-%m-%d %H:%m\""
 alias vim="nvim"
 alias t="task"
+alias grep="grep --color"
 
 # bash_completion throws weird errors if we don't undo `allexport`
 set +o allexport
