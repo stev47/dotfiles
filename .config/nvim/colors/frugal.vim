@@ -60,7 +60,7 @@ hi Todo                 guifg=#000000 guibg=#e6ea50                          gui
 hi pythonOperator       guifg=#7e8aa2 gui=none ctermfg=103
 
 " Diff highlighting
-hi DiffAdd              guibg=#204420 gui=none
-hi DiffDelete           guibg=#552020 gui=none
-hi DiffChange           guibg=#202066 gui=none
-hi DiffText guibg=#0000dd guifg=#ffffff gui=bold
+hi DiffAdd              guibg=#00ff00 gui=none ctermbg=22
+hi DiffDelete           guibg=#ff0000 gui=none ctermbg=88
+hi DiffChange           guibg=#0000ff gui=none ctermbg=18
+hi DiffText guibg=#0000ff guifg=none gui=bold ctermbg=21
