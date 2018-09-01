@@ -40,6 +40,12 @@ augroup END
 " purely key position remapping (beware of keyboard layout changes)
 runtime keymaps-layout.vim
 
+" filetype specific
+" =================
+
+autocmd FileType mail set textwidth=79
+let g:tex_flavor = "latex"
+
 
 " visuals
 " =======
@@ -89,9 +95,8 @@ set clipboard=unnamedplus
 set autoread
 autocmd FocusGained,BufEnter * :silent! checktime
 
-
-" staging
-" =======
+" mappings
+" ========
 
 " expand to directory of current file
 cnoremap %% <C-r>=fnameescape(expand('%:h')).'/'<CR>
@@ -100,8 +105,7 @@ cnoremap %% <C-r>=fnameescape(expand('%:h')).'/'<CR>
 nmap <leader>e :e %%
 nmap <leader>v :tabedit $MYVIMRC<CR>
 
+" staging
+" =======
 
-" filetype specific
-" =================
-
-autocmd FileType mail set textwidth=79
+tnoremap <Esc> <C-\><C-n>
