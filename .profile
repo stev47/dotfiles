@@ -33,3 +33,5 @@ if ! [ -f ~/.gnupg/gpg-agent.env ] && ! gpg-agent 2> /dev/null; then
 fi
 
 export MAKEFLAGS="-j$(nproc)"
+
+export RIPGREP_CONFIG_PATH=~/.config/ripgrep/config
