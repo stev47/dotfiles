@@ -1,0 +1,20 @@
+#!/bin/bash
+
+echo -n "scanning ... "
+wpa_cli scan > /dev/null
+sleep 2
+echo "finished"
+
+interface=`networkctl --no-legend | grep wlan | awk '{print $2}'`
+ssid=`wpa_cli scan_results | awk 'NR>2{print $5}' | dmenu -i -l 5`
+[ -z $ssid ] && exit
+
+echo "connect to $ssid"
+echo -n "passphrase: "
+
+out=`wpa_passphrase $ssid`
+[ $? == 0 ] || (echo $out && exit)
+
+echo "$out" | sudo tee -a /etc/wpa_supplicant/wpa_supplicant-${interface}.conf
+
+wpa_cli reconfigure
