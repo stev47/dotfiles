@@ -101,7 +101,9 @@ set clipboard=unnamedplus
 
 " check for file modifications in time
 set autoread
+" doesn't seem to work anymore :-(
 autocmd FocusGained,BufEnter * :silent! checktime
+
 
 " mappings
 " ========
@@ -121,5 +123,8 @@ let g:tex_flavor = "latex"
 
 " staging
 " =======
+nnoremap <leader>t :vsplit term://bash<CR>i
+tnoremap <C-Space> <C-\><C-n><C-w><C-w>
+inoremap <C-Space> <Esc><C-w><C-w>i
+nnoremap <C-Space> <C-w><C-w>i
 
-tnoremap <Esc> <C-\><C-n>
