@@ -63,4 +63,4 @@ hi pythonOperator       guifg=#7e8aa2 gui=none ctermfg=103
 hi DiffAdd              guibg=#00ff00 gui=none ctermbg=22
 hi DiffDelete           guibg=#ff0000 gui=none ctermbg=88
 hi DiffChange           guibg=#0000ff gui=none ctermbg=18
-hi DiffText guibg=#0000ff guifg=none gui=bold ctermbg=21
+hi DiffText             guibg=#0000ff gui=bold ctermbg=21
