@@ -120,6 +120,7 @@ bindcode Mod1+Shift+Mod3+31 move container to workspace 8
 bindcode Mod1+Shift+Mod3+32 move container to workspace 9
 bindcode Mod1+Shift+Mod3+65 move container to workspace 0
 
+# $mod + Shift + .
 bindcode $mod+Shift+60 move workspace to output right
 
 # reload the configuration file
