@@ -36,6 +36,8 @@ imap <Tab> <Plug>(neosnippet_expand_or_jump)
 smap <Tab> <Plug>(neosnippet_expand_or_jump)
 map <F3> :NeoSnippetEdit -split -vertical<CR>
 
+Plug 'chriskempson/base16-vim'
+
 call plug#end()
 
 
@@ -58,8 +60,9 @@ let g:tex_flavor = "latex"
 " visuals
 " =======
 
+let base16colorspace=256
 " syntax highlighting
-colorscheme frugal
+colorscheme base16-snazzy
 syntax on
 " highlight trailing whitespace
 highlight ExtraWhitespace ctermbg=red guibg=red
