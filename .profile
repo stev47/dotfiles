@@ -19,7 +19,7 @@ export PATH="~/bin:$PATH"
 # make $HOME to ~ shortening work for symlinked home dirs
 export HOME="$(realpath $HOME)"
 
-export TERMINAL="sakura"
+export TERMINAL="termite"
 export EDITOR="nvim"
 
 # gpg-agent
