@@ -103,7 +103,7 @@ bindcode Mod1+Mod3+46 workspace 6
 bindcode Mod1+Mod3+30 workspace 7
 bindcode Mod1+Mod3+31 workspace 8
 bindcode Mod1+Mod3+32 workspace 9
-bindcode Mod1+Mod3+65 workspace 10
+bindcode Mod1+Mod3+65 workspace 0
 
 # move focused container to workspace
 bindsym Mod1+Shift+1 move container to workspace 1
@@ -118,7 +118,7 @@ bindcode Mod1+Shift+Mod3+46 move container to workspace 6
 bindcode Mod1+Shift+Mod3+30 move container to workspace 7
 bindcode Mod1+Shift+Mod3+31 move container to workspace 8
 bindcode Mod1+Shift+Mod3+32 move container to workspace 9
-bindcode Mod1+Shift+Mod3+65 move container to workspace 10
+bindcode Mod1+Shift+Mod3+65 move container to workspace 0
 
 # reload the configuration file
 bindsym $mod+Shift+adiaeresis reload
