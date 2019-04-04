@@ -34,5 +34,7 @@ fi
 
 export MAKEFLAGS="-j$(nproc)"
 export RIPGREP_CONFIG_PATH=~/.config/ripgrep/config
-export TEXINPUTS="~/stuff/texinputs:"
+
+# trailing "//" makes lookup recursive
+export TEXINPUTS="~/stuff/texinputs//:"
 export BIBINPUTS="~/stuff/nmh/literature:"
