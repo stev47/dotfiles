@@ -1,22 +1,22 @@
-autocmd FileType tex unmap <buffer> tsd
-autocmd FileType tex unmap <buffer> tsD
-autocmd FileType tex unmap <buffer> tsc
-autocmd FileType tex unmap <buffer> tse
-autocmd FileType tex unmap <buffer> dsd
-autocmd FileType tex unmap <buffer> dsc
-autocmd FileType tex unmap <buffer> dse
-autocmd FileType tex unmap <buffer> ds$
-autocmd FileType tex unmap <buffer> aP
-autocmd FileType tex unmap <buffer> a$
-autocmd FileType tex unmap <buffer> ac
-autocmd FileType tex unmap <buffer> ad
-autocmd FileType tex unmap <buffer> ae
+silent! autocmd FileType tex unmap <buffer> tsd
+silent! autocmd FileType tex unmap <buffer> tsD
+silent! autocmd FileType tex unmap <buffer> tsc
+silent! autocmd FileType tex unmap <buffer> tse
+silent! autocmd FileType tex unmap <buffer> dsd
+silent! autocmd FileType tex unmap <buffer> dsc
+silent! autocmd FileType tex unmap <buffer> dse
+silent! autocmd FileType tex unmap <buffer> ds$
+silent! autocmd FileType tex unmap <buffer> aP
+silent! autocmd FileType tex unmap <buffer> a$
+silent! autocmd FileType tex unmap <buffer> ac
+silent! autocmd FileType tex unmap <buffer> ad
+silent! autocmd FileType tex unmap <buffer> ae
 silent! unmap a%
-autocmd FileType tex unmap <buffer> iP
-autocmd FileType tex unmap <buffer> i$
-autocmd FileType tex unmap <buffer> ic
-autocmd FileType tex unmap <buffer> id
-autocmd FileType tex unmap <buffer> ie
+silent! autocmd FileType tex unmap <buffer> iP
+silent! autocmd FileType tex unmap <buffer> i$
+silent! autocmd FileType tex unmap <buffer> ic
+silent! autocmd FileType tex unmap <buffer> id
+silent! autocmd FileType tex unmap <buffer> ie
 silent! unmap i%
-autocmd FileType julia silent! unmap <buffer> aj
-autocmd FileType julia silent! unmap <buffer> ij
+silent! autocmd FileType julia silent! unmap <buffer> aj
+silent! autocmd FileType julia silent! unmap <buffer> ij
