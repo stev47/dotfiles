@@ -10,8 +10,8 @@ setxkbmap de neo -option
 xkbcomp -w 0 ~/.config/xkb/neo2-numlvl3.xkb $DISPLAY
 
 # fix weird artifacts on gnome-terminal with nvidia drivers
-export CLUTTER_PAINT=disable-clipped-redraws:disable-culling
-export __GL_SHADER_DISK_CACHE=0
+#export CLUTTER_PAINT=disable-clipped-redraws:disable-culling
+#export __GL_SHADER_DISK_CACHE=0
 
 # get back proper font hinting
 export FREETYPE_PROPERTIES="truetype:interpreter-version=35"
