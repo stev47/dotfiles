@@ -27,6 +27,14 @@ let g:vimtex_compiler_latexmk = {
 
 Plug 'JuliaEditorSupport/julia-vim'
 Plug 'tpope/vim-fugitive'
+Plug 'posva/vim-vue'
+
+let g:neosnippet#disable_runtime_snippets = {'_': 1}
+let g:neosnippet#snippets_directory = '~/.config/nvim/snippets'
+Plug 'Shougo/neosnippet.vim'
+imap <Tab> <Plug>(neosnippet_expand_or_jump)
+smap <Tab> <Plug>(neosnippet_expand_or_jump)
+map <F3> :NeoSnippetEdit -split -vertical<CR>
 
 call plug#end()
 
@@ -104,6 +112,12 @@ cnoremap %% <C-r>=fnameescape(expand('%:h')).'/'<CR>
 " quick-edit
 nmap <leader>e :e %%
 nmap <leader>v :tabedit $MYVIMRC<CR>
+
+" filetype specific
+" =================
+
+autocmd FileType mail set textwidth=79
+let g:tex_flavor = "latex"
 
 " staging
 " =======
