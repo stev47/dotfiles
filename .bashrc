@@ -14,6 +14,8 @@ unset LC_ALL
 # leave shell using ctrl+d
 set +o ignoreeof
 
+[ $TERM = "xterm-termite" ] && [ ! -f /usr/share/terminfo/x/xterm-termite ] && export TERM="xterm-256color"
+
 # aliases
 unalias rm cp mv 2> /dev/null
 alias ls="ls -lh --color --time-style=\"+%y-%m-%d %H:%m\""
