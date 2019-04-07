@@ -6,7 +6,7 @@ sleep 2
 echo "finished"
 
 interface=`networkctl --no-legend | grep wlan | awk '{print $2}'`
-selection=`wpa_cli scan_results | tail -n +3 | sort -k 3 | awk '{print $1,$3,($4 ~ /WPA/)?"*":"_",$5}' | dmenu -i -l 5 | awk '{print $3,$4}'`
+selection=`wpa_cli scan_results | tail -n +3 | sort -k 3 | awk -F"\t" '{print $1,$3,($4 ~ /WPA/)?"*":"_",$5}' | dmenu -i -l 5 | cut -d ' ' -f3-`
 
 [ -z "$selection" ] && exit
 ssid="${selection#* }"
