@@ -1,0 +1,9 @@
+# university workstation
+
+output eDP-1 pos 0 0 res 1920x1080
+output DP-1 pos 1920 0 res 2560x1440
+
+workspace 1 output DP-1
+workspace 0 output eDP-1
+
+bindsym $meta+r exec "~/bin/read.sh"

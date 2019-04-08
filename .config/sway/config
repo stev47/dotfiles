@@ -8,6 +8,8 @@
 #
 # Logo key. Use Mod1 for Alt.
 set $mod Mod1
+set $meta Mod4
+
 # Home row direction keys, like vim
 set $left 44
 set $down 45
@@ -20,7 +22,7 @@ set $term termite
 # Note: it's recommended that you pass the final command to sway
 set $menu dmenu_path | dmenu | xargs swaymsg exec
 
-font pango: Roboto Mono 11
+font pango: DejaVu Sans Mono 12
 
 ### Output configuration
 #
@@ -234,14 +236,13 @@ mode $mode_system {
 }
 bindsym $mod+Delete mode $mode_system
 
+
+include ~/.config/sway/colors
+
 #
 # Status Bar:
 #
 # Read `man 5 sway-bar` for more information about this section.
-
-set $blue #285577
-set $gray #333333
-set $red #900000
 
 bar {
     position bottom
@@ -251,25 +252,23 @@ bar {
     status_command while LC_TIME="ja_JP.UTF-8" date +'%Y-%m-%d %a %H:%M:%S'; do sleep 1; done
 
     colors {
-        statusline #ffffff
-        background $gray
-        active_workspace $gray $gray #ffffff
-        inactive_workspace $gray $gray #888888
-        focused_workspace $blue $blue #ffffff
-        urgent_workspace $red $red #ffffff
+        statusline $foreground
+        background $background
+        active_workspace $background $background $foreground
+        inactive_workspace $background $background $color8
+        focused_workspace $color8 $color8 $foreground
+        urgent_workspace $color1 $color1 $color0
     }
 }
 
-client.focused $blue $blue #ffffff $blue $blue
-client.unfocused $gray $gray #ffffff $gray $gray
-client.focused_inactive $gray $gray #ffffff $gray $gray
-#client.focused_inactive #445566 #445566 #ffffff #445566 #445566
+client.focused $color8 $color8 $foreground $color8 $color4
+client.focused_inactive $color8 $color8 $foreground $background $background
+client.unfocused $color18 $color18 $foreground $color18 $color18
+#client.focused_inactive #555555 #555555 #ffffff #555555 #555555
 
-default_border pixel 4
+default_border pixel 3
 
 for_window [class="mpv"] floating enable
 
-#workspace 1 output DP-1
-#workspace 0 output eDP-1
-
 include /etc/sway/config.d/*
+include ~/.config/sway/`hostname`

@@ -1,0 +1,41 @@
+# Black, Gray, Silver, White
+set $color0  #1e1f29
+set $color8  #78787e
+set $color7  #eff0eb
+set $color15 #f1f1f0
+
+# Red
+set $color1  #ff5c57
+set $color9  #ff5c57
+
+# Green
+set $color2  #5af78e
+set $color10 #5af78e
+
+# Yellow
+set $color3  #f3f99d
+set $color11 #f3f99d
+
+# Blue
+set $color4  #57c7ff
+set $color12 #57c7ff
+
+# Purple
+set $color5  #ff6ac1
+set $color13 #ff6ac1
+
+# Teal
+set $color6  #9aedfe
+set $color14 #9aedfe
+
+# Extra colors
+set $color16 #ff9f43
+set $color17 #b2643c
+set $color18 #34353e
+set $color19 #4a4b53
+set $color20 #a5a5a9
+set $color21 #f1f1f0
+
+# Aliases
+set $foreground $color7
+set $background $color0
