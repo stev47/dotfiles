@@ -261,7 +261,7 @@ bar {
     }
 }
 
-client.focused $color8 $color8 $foreground $color8 $color4
+client.focused $color8 $color8 $foreground $color2 $color2
 client.focused_inactive $color8 $color8 $foreground $background $background
 client.unfocused $color18 $color18 $foreground $color18 $color18
 #client.focused_inactive #555555 #555555 #ffffff #555555 #555555
