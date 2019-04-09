@@ -252,21 +252,22 @@ bar {
     status_command while LC_TIME="ja_JP.UTF-8" date +'%Y-%m-%d %a %H:%M:%S'; do sleep 1; done
 
     colors {
-        statusline $foreground
-        background $background
-        active_workspace $background $background $foreground
-        inactive_workspace $background $background $color8
-        focused_workspace $color8 $color8 $foreground
-        urgent_workspace $color1 $color1 $color0
+        statusline $base05
+        background $base00
+        active_workspace $base00 $base00 $base05
+        inactive_workspace $base00 $base00 $base04
+        focused_workspace $base02 $base02 $base04
+        urgent_workspace $base08 $base08 $base04
     }
 }
 
-client.focused $color8 $color8 $foreground $color2 $color2
-client.focused_inactive $color8 $color8 $foreground $background $background
-client.unfocused $color18 $color18 $foreground $color18 $color18
-#client.focused_inactive #555555 #555555 #ffffff #555555 #555555
+client.focused $base03 $base03 $base05 $base03 $base03
+client.focused_inactive $base02 $base02 $base05 $base00 $base00
+client.unfocused $base01 $base01 $base05 $base01 $base01
+client.urgent $base08 $base08 $base07 $base08 $base08
 
 default_border pixel 3
+titlebar_border_thickness 2
 
 for_window [class="mpv"] floating enable
 
