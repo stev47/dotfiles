@@ -252,12 +252,12 @@ bar {
     status_command while LC_TIME="ja_JP.UTF-8" date +'%Y-%m-%d %a %H:%M:%S'; do sleep 1; done
 
     colors {
-        statusline $base05
         background $base00
-        active_workspace $base00 $base00 $base05
-        inactive_workspace $base00 $base00 $base04
-        focused_workspace $base02 $base02 $base04
-        urgent_workspace $base08 $base08 $base04
+        statusline $base05
+        focused_workspace $base03 $base03 $base07
+        active_workspace $base02 $base02 $base05
+        inactive_workspace $base00 $base00 $base05
+        urgent_workspace $base08 $base08 $base07
     }
 }
 
