@@ -37,6 +37,8 @@ smap <Tab> <Plug>(neosnippet_expand_or_jump)
 map <F3> :NeoSnippetEdit -split -vertical<CR>
 
 Plug 'chriskempson/base16-vim'
+Plug 'chiel92/vim-autoformat'
+noremap oq :Autoformat<CR>
 
 call plug#end()
 
