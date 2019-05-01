@@ -67,6 +67,7 @@ input * {
     xkb_layout de
     xkb_variant neo
     xkb_options ctrl:nocaps
+    tap enabled
 }
 
 ### Key bindings
