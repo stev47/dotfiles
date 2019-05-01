@@ -50,13 +50,6 @@ augroup END
 " purely key position remapping (beware of keyboard layout changes)
 runtime keymaps-layout.vim
 
-" filetype specific
-" =================
-
-autocmd FileType mail set textwidth=79
-let g:tex_flavor = "latex"
-
-
 " visuals
 " =======
 
@@ -122,6 +115,7 @@ nmap <leader>v :tabedit $MYVIMRC<CR>
 " =================
 
 autocmd FileType mail set textwidth=79
+autocmd FileType julia set shiftwidth=4
 let g:tex_flavor = "latex"
 
 " staging
