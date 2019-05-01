@@ -249,7 +249,8 @@ bar {
 
     # When the status_command prints a new line to stdout, swaybar updates.
     # The default just shows the current date and time.
-    status_command while LC_TIME="ja_JP.UTF-8" date +'%Y-%m-%d %a %H:%M:%S'; do sleep 1; done
+    #status_command while LC_TIME="ja_JP.UTF-8" date +'%Y-%m-%d %a %H:%M:%S'; do sleep 1; done
+    status_command julia ~/bin/mybar.jl
 
     colors {
         background $base00
