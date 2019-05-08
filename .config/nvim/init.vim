@@ -38,7 +38,7 @@ map <F3> :NeoSnippetEdit -split -vertical<CR>
 
 Plug 'chriskempson/base16-vim'
 Plug 'chiel92/vim-autoformat'
-noremap oq :Autoformat<CR>
+noremap o= :Autoformat<CR>
 
 call plug#end()
 
@@ -94,12 +94,15 @@ set hidden
 set expandtab
 set shiftwidth=2
 
+" no inconsistent spaces when joining lines
+set nojoinspaces
+
 " clipboard, save only to register '+'
 set clipboard=unnamedplus
 
 " check for file modifications in time
 set autoread
-" doesn't seem to work anymore :-(
+" doesn't seem to work anymore in i3 :-(, but works in sway!
 autocmd FocusGained,BufEnter * :silent! checktime
 
 
