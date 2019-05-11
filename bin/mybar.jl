@@ -23,6 +23,7 @@ end
 
 function battery()
     path = "/sys/class/power_supply/BAT0"
+    !isfile(path) && return
     cap = parse(Int, readline(joinpath(path, "capacity")))
     return (full_text = "$(cap)%",)
 end
