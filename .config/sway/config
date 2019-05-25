@@ -271,7 +271,7 @@ client.urgent $base08 $base08 $base07 $base08 $base08
 default_border pixel 3
 titlebar_border_thickness 2
 
-for_window [class="mpv"] floating enable
+for_window [title="mpv"] floating enable
 # workaround for wl-clipboard pasting bug
 for_window [title="wl-clipboard"] floating enable
 
