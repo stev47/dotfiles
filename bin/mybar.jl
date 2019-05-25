@@ -2,7 +2,8 @@ import JSON.json
 using Dates
 
 function init(;kwargs...)
-    println(json(kwargs))
+    # we use this instead of `println`, because the protocol expects the newline to be flushed at the same time while println sometimes flushed before the newline
+    print("$(json(kwargs))\n")
     println("[")
 end
 
