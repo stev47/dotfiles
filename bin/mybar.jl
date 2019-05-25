@@ -1,5 +1,6 @@
 import JSON.json
 using Dates
+using Printf
 
 function init(;kwargs...)
     # we use this instead of `println`, because the protocol expects the newline to be flushed at the same time while println sometimes flushed before the newline
@@ -24,9 +25,12 @@ end
 
 function battery()
     path = "/sys/class/power_supply/BAT0"
-    !isfile(path) && return
+    !isdir(path) && return
+
     cap = parse(Int, readline(joinpath(path, "capacity")))
-    return (full_text = "$(cap)%",)
+    status = readline(joinpath(path, "status"))
+
+    return (full_text = @sprintf("%s%% %s", cap, status),)
 end
 
 init(version = 1, click_events = true)
