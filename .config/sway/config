@@ -220,6 +220,10 @@ mode "resize" {
 }
 bindcode $mod+27 mode "resize"
 
+
+bindsym XF86MonBrightnessDown exec light -U 5
+bindsym XF86MonBrightnessUp exec light -A 5
+
 set $mode_system "System: [o] poweroff, [r] reboot, [s] suspend, [x] logout"
 #, [F10] en, [F11] de, [F12] neo2-numlvl3"
 
