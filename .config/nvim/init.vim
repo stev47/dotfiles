@@ -8,7 +8,7 @@ Plug 'tpope/vim-sensible'
 Plug 'lervag/vimtex'
 "let g:vimtex_mappings_enabled=1
 let g:vimtex_compiler_latexmk = {
-      \ 'backend' : 'process',
+      \ 'backend' : 'nvim',
       \ 'background' : 1,
       \ 'build_dir' : '',
       \ 'callback' : 1,
@@ -22,6 +22,9 @@ let g:vimtex_compiler_latexmk = {
       \   '-interaction=nonstopmode',
       \ ],
       \}
+
+let g:vimtex_view_method = 'zathura'
+let g:vimtex_compiler_progname = 'nvr'
 
 "Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 
