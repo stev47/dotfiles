@@ -36,7 +36,7 @@ export MAKEFLAGS="-j$(nproc)"
 export RIPGREP_CONFIG_PATH=~/.config/ripgrep/config
 
 # trailing "//" makes lookup recursive
-export TEXINPUTS="~/stuff/texinputs//:"
+export TEXINPUTS=".:~/stuff/texinputs//:"
 export BIBINPUTS="~/stuff/nmh/literature:"
 
 export XKB_CONFIG_ROOT="/home/stev47/test/xkeyboard-config/"
