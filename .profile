@@ -39,4 +39,4 @@ export RIPGREP_CONFIG_PATH=~/.config/ripgrep/config
 export TEXINPUTS=".:~/stuff/texinputs//:"
 export BIBINPUTS="~/stuff/nmh/literature:"
 
-export XKB_CONFIG_ROOT="/home/stev47/test/xkeyboard-config/"
+[ -d /home/stev47/test/xkeyboard-config ] && export XKB_CONFIG_ROOT="/home/stev47/test/xkeyboard-config/"
