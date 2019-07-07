@@ -1,5 +1,7 @@
 #!/bin/sh
 
+shopt -s nullglob
+
 list() {
   for file in ~/read/*; do
     echo "$file"
