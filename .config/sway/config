@@ -39,11 +39,11 @@ output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 #
 # Example configuration:
 #
-# exec swayidle -w \
 #          timeout 300 'swaylock -f -c 000000' \
 #          timeout 600 'swaymsg "output * dpms off"' \
 #               resume 'swaymsg "output * dpms on"' \
-#          before-sleep 'swaylock -f -c 000000'
+ exec swayidle -w \
+          before-sleep 'swaylock -f -c 000000'
 #
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
@@ -224,10 +224,11 @@ bindcode $mod+27 mode "resize"
 bindsym XF86MonBrightnessDown exec light -U 5
 bindsym XF86MonBrightnessUp exec light -A 5
 
-set $mode_system "System: [o] poweroff, [r] reboot, [s] suspend, [x] logout"
+set $mode_system "System: [l] lock, [o] poweroff, [r] reboot, [s] suspend, [x] logout"
 #, [F10] en, [F11] de, [F12] neo2-numlvl3"
 
 mode $mode_system {
+  bindsym l exec "swaylock -f -c 000000 && swaymsg mode default"
   bindsym o exec "poweroff && swaymsg mode default"
   bindsym r exec "reboot && swaymsg mode default"
   bindsym s exec "systemctl suspend && swaymsg mode default"
