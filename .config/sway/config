@@ -281,6 +281,7 @@ titlebar_border_thickness 2
 for_window [title="mpv"] floating enable
 # workaround for wl-clipboard pasting bug
 for_window [title="wl-clipboard"] floating enable
+for_window [title="Tor Browser"] floating enable
 
 include /etc/sway/config.d/*
 include ~/.config/sway/`hostname`
