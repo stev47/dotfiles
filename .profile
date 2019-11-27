@@ -40,3 +40,8 @@ export TEXINPUTS=".:~/stuff/texinputs//:"
 export BIBINPUTS="~/stuff/nmh/literature:"
 
 [ -d /home/stev47/test/xkeyboard-config ] && export XKB_CONFIG_ROOT="/home/stev47/test/xkeyboard-config/"
+
+# get back proper font hinting
+export FREETYPE_PROPERTIES="truetype:interpreter-version=35"
+
+export GDK_BACKEND=wayland
