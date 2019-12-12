@@ -16,13 +16,12 @@ set $down 45
 set $up 46
 set $right 47
 # Your preferred terminal emulator
-#set $term urxvt
-set $term termite
+set $term alacritty
 # Your preferred application launcher
 # Note: it's recommended that you pass the final command to sway
-set $menu dmenu_path | dmenu | xargs swaymsg exec
+set $menu bemenu-run -l 5 --nf "#eff0eb" --hb "#78787e" --hf "#eff0eb" --tf "#eff0eb" --ff "#57c7ff" --fn "DejaVu Sans Mono 14" -p "" | xargs swaymsg exec
 
-font "DejaVu Sans Mono 11"
+font "DejaVu Sans Mono 14"
 
 ### Output configuration
 #
@@ -285,3 +284,5 @@ for_window [title="Tor Browser"] floating enable
 
 include /etc/sway/config.d/*
 include ~/.config/sway/`hostname`
+
+exec redshift &
