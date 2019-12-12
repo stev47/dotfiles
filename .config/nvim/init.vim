@@ -58,10 +58,40 @@ runtime keymaps-layout.vim
 " visuals
 " =======
 
-let base16colorspace=256
 " syntax highlighting
-colorscheme base16-snazzy
 syntax on
+
+"let base16colorspace=256
+"colorscheme base16-snazzy
+
+colorscheme ron
+highlight Normal ctermfg=white ctermbg=black
+highlight Search ctermbg=12
+highlight NonText ctermfg=darkgrey
+highlight SpecialKey ctermfg=darkgrey
+highlight clear SignColumn
+highlight Comment cterm=bold ctermfg=darkgrey
+highlight StatusLine cterm=italic ctermbg=none ctermfg=darkgrey
+highlight StatusLineNC cterm=italic ctermbg=none ctermfg=darkgrey
+highlight Title cterm=bold ctermfg=white
+highlight TabLineFill cterm=none
+highlight TabLine cterm=none ctermfg=darkgrey ctermbg=none
+highlight ColorColumn ctermbg=darkgrey guibg=lightgrey
+highlight Todo ctermbg=NONE ctermfg=red cterm=bold
+highlight PreProc ctermfg=grey
+highlight String ctermfg=darkblue cterm=italic
+highlight lineNr ctermfg=grey cterm=italic
+highlight Pmenu ctermbg=white ctermfg=black
+highlight PmenuSel ctermbg=darkcyan ctermfg=black
+
+highlight jsParensError ctermbg=NONE
+highlight cIncluded ctermfg=NONE cterm=bold
+highlight pythonInclude ctermfg=blue
+highlight pythonConditional ctermfg=darkcyan
+highlight pythonBuiltin ctermfg=darkcyan
+
+"runtime 'colors/keymaps-layout.vim'
+
 " highlight trailing whitespace
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
