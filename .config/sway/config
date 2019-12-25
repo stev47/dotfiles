@@ -225,8 +225,7 @@ bindsym XF86MonBrightnessUp exec light -A 5
 
 bindsym $meta+r exec "~/bin/read.sh"
 
-set $mode_system "System: [l] lock, [o] poweroff, [r] reboot, [s] suspend, [x] logout"
-#, [F10] en, [F11] de, [F12] neo2-numlvl3"
+set $mode_system "System: [l] lock, [o] poweroff, [r] reboot, [s] suspend, [x] logout, [F10] en, [F11] de, [F12] neo2-numlvl3"
 
 mode $mode_system {
   bindsym l exec "swaylock -f -c 000000 && swaymsg mode default"
@@ -234,9 +233,9 @@ mode $mode_system {
   bindsym r exec "reboot && swaymsg mode default"
   bindsym s exec "systemctl suspend && swaymsg mode default"
   bindsym x exec "swaymsg exit"
-  #bindsym F10 exec "setxkbmap us" mode "default"
-  #bindsym F11 exec "setxkbmap de" mode "default"
-  #bindsym F12 exec "xkbcomp -w 0 ~/.config/xkb/neo2-numlvl3.xkb $DISPLAY" mode "default"
+  bindsym F10 input * xkb_variant basic; input * xkb_layout us; input * xkb_options ''; mode default
+  bindsym F11 input * xkb_layout de; input * xkb_variant basic; input * xkb_options ''; mode default
+  bindsym F12 input * xkb_layout de; input * xkb_variant neo; input * xkb_options 'ctrl:nocaps,lv5:lsgt_switch,lv5:ralt_switch,lv3:4_switch_isolated,lv3:9_switch_isolated'; mode default
 
   bindsym Escape mode "default"
   bindcode Mod3+52 mode "default"
