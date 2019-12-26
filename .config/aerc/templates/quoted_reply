@@ -1,0 +1,1 @@
+{{wrapText .OriginalText 72 | quote }}
