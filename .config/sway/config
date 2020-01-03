@@ -245,11 +245,6 @@ bindsym $mod+Delete mode $mode_system
 
 include ~/.config/sway/colors
 
-#
-# Status Bar:
-#
-# Read `man 5 sway-bar` for more information about this section.
-
 bar {
     position bottom
 
@@ -264,7 +259,7 @@ bar {
         focused_workspace $base03 $base03 $base07
         active_workspace $base02 $base02 $base05
         inactive_workspace $base00 $base00 $base05
-        urgent_workspace $base08 $base08 $base07
+        urgent_workspace $base02 $base02 $base08
     }
 }
 
@@ -277,8 +272,6 @@ default_border pixel 3
 titlebar_border_thickness 2
 
 for_window [title="mpv"] floating enable
-# workaround for wl-clipboard pasting bug
-for_window [title="wl-clipboard"] floating enable
 for_window [title="Tor Browser"] floating enable
 
 include /etc/sway/config.d/*
