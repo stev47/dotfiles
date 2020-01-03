@@ -44,4 +44,5 @@ export BIBINPUTS="~/stuff/nmh/literature:"
 # get back proper font hinting
 export FREETYPE_PROPERTIES="truetype:interpreter-version=35"
 
-export GDK_BACKEND=wayland
+#export GDK_BACKEND=wayland
+export MOZ_ENABLE_WAYLAND=1
