@@ -1,7 +1,18 @@
 # university workstation
 
-output eDP-1 pos 0 0 res 1920x1080
-output DP-1 pos 1920 0 res 2560x1440
+bindsym $mod+F11 exec brightnessctl set 5%-
+bindsym $mod+F12 exec brightnessctl set 5%+
 
-workspace 1 output DP-1
+# internal display
+output 'Sharp Corporation 0x1449 0x00000000' pos 0 0 res 1920x1080
+
+# 4k left
+output 'Iiyama North America PL2792UH 1166393501344' pos 1920 0 res 3840x2160@60Hz scale 2 subpixel rgb
+#output 'Iiyama North America PL2792UH 1166393501344' pos 1920 0 res 3840x2160@30Hz scale 2 subpixel rgb
+# 1440p right
+output 'Iiyama North America PL2792Q 1152174001738' pos 3840 0 res 1920x1080@60Hz scale 1 subpixel none
+#output 'Iiyama North America PL2792Q 1152174001738' pos 3840 0 res 2560x1440@60Hz scale 1.3333 subpixel rgb
+
 workspace 0 output eDP-1
+workspace 1 output 'Iiyama North America PL2792UH 1166393501344'
+workspace 2 output 'Iiyama North America PL2792Q 1152174001738'

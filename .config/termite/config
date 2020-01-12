@@ -1,5 +1,5 @@
 [options]
-font = DejaVu Sans Mono 12
+font = DejaVu Sans Mono 11
 scrollback_lines = 10000
 
 [colors]
