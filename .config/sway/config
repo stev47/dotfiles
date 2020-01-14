@@ -67,6 +67,8 @@ input * {
     xkb_variant neo
     xkb_options ctrl:nocaps,lv5:lsgt_switch,lv5:ralt_switch,lv3:4_switch_isolated,lv3:9_switch_isolated
     tap enabled
+    dwt disabled
+    tap_button_map lrm
 }
 
 ### Key bindings
