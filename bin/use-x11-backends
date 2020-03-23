@@ -1,0 +1,6 @@
+#!/bin/sh -e
+
+export GDK_BACKEND=x11
+export MOZ_ENABLE_WAYLAND=0
+export QT_QPA_PLATFORM=x11
+export SDL_VIDEODRIVER=x11
