@@ -1,0 +1,3 @@
+#!/bin/sh
+
+sshuttle -v -r hilbsn@nmh111.mathematik.uni-stuttgart.de 129.69.0.0/16 -x 129.69.61.171
